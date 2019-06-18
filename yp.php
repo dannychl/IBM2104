@@ -49,10 +49,10 @@
 			</head>
 			
 			<body style="background-color: E5E5E5">
-				<div class="container mt-5">
+				<div class="container mt-5" style="height: 200px">
 					<h1 class="chgFontFamily">Institutions</h1>
 				</div>
-				<div style="height: 50px"></div>
+				
 					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 					<div class="container" style="margin-top: 100px; margin-left: 50px;">
 						<div class="row">
@@ -83,7 +83,7 @@
 
 
 							<div class="col-md-8" style="width: 60%; right:80px">
-							  	<table class="table table-hover" style="margin-left: 200px;">
+							  	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px;">
 									<tbody>
 									 	 <tr style="height: 150px;">
 											<td style="width: 390px;"><img src="inti-logo.png" alt="Inti Logo" style="height: 100px; margin-top: 15px; margin-left: 15px;"></td>	
