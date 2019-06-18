@@ -49,9 +49,10 @@
 			</head>
 			
 			<body style="background-color: E5E5E5">
-				<div class="container mt-5" style="height: 200px">
+				<div class="container mt-5">
 					<h1 class="chgFontFamily">Institutions</h1>
 				</div>
+				<div style="height: 50px"></div>
 					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 					<div class="container" style="margin-top: 100px; margin-left: 50px;">
 						<div class="row">
