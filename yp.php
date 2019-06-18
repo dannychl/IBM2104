@@ -24,6 +24,10 @@
 					font-family: times;
 				}
 
+				h1.chgFontFamily{
+					font-family: arial;
+				}
+
 				.rating {
 				  unicode-bidi: bidi-override;
 				  direction: rtl;
@@ -46,18 +50,19 @@
 			
 			<body style="background-color: E5E5E5">
 				<div class="container mt-5" style="height: 200px">
-					<h2>Institutions</h2>
+					<h1 class="chgFontFamily">Institutions</h1>
 				</div>
-					<div style="background-color: white; margin: 0px 30px 30px 30px; padding-top: 5px; padding-bottom: 50px">
-					<div class="container" style="margin-top: 100px; margin-left: 100px;">
+					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+					<div class="container" style="margin-top: 100px; margin-left: 50px;">
 						<div class="row">
 							<div class="col-md-4" style="width: 100%; margin-top: 150px">
 								<div class="panel panel-primary" style="border-radius: 20px;">
 									<div class="panel-heading" style="border-radius: 20px 20px 0px 0px; background-color: 53B949">
-									<center><h4 class="chgFontFamily">Advanced Search</h4></center>
+									<center><h4 class="chgFontFamily" style="font-size: 25px">Advanced Search</h4></center>
 									</div>
 
 									<div class="panel-body ml-3 mt-3">
+									<h4>Filter</h4>
 									<h4>State: 
 										<select name="state" style="margin-left: 20px; border-radius: 10px;">
 										<option value="0">------State------</option>
