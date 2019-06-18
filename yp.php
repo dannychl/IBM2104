@@ -45,13 +45,15 @@
 			</head>
 			
 			<body>
-
+				<div class="container mt-5">
+					<h2>Institutions</h2>
+				</div>
 
 				<div class="container" style="margin-top: 100px; margin-left: 100px;">
 					<div class="row">
 						<div class="col-md-4" style="width: 100%; margin-top: 150px">
-							<div class="panel panel-primary" style="border-radius: 25px;">
-								<div class="panel-heading" style="border-radius: 25px 25px 0px 0px;">
+							<div class="panel panel-primary" style="border-radius: 20px;">
+								<div class="panel-heading" style="border-radius: 20px 20px 0px 0px; background-color: 53B949">
 								<center><h4 class="chgFontFamily">Advanced Search</h4></center>
 								</div>
 
@@ -66,7 +68,7 @@
 								</h4>
 								</div>
 
-								<div class="panel-footer" style="border-radius: 0px 0px 25px 25px;">
+								<div class="panel-footer" style="border-radius: 0px 0px 20px 20px;">
 									<center><button type="button" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;">Search <span class="fa fa-search"</span></button></center>
 								</div>
 							</div>
@@ -74,7 +76,7 @@
 
 
 
-						<div class="col-md-8" style="width: 60%">
+						<div class="col-md-8" style="width: 60%;">
 						  	<table class="table table-hover" style="margin-left: 200px;">
 								<tbody>
 								 	 <tr style="height: 150px;">
@@ -82,7 +84,7 @@
 										<td><br>INTI International College Penang
 										<br><span style="color: B7B7B7">Rating: 4.5</span>
 										<br><span class="material-icons" style="color: B7B7B7; font-size: 20px;">place</span><span style="color: B7B7B7">Kuala Lumpur</span>
-										<br><a href="new 2.php">See More...</a></td>
+										<br><a href="new 2.php" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 								  	</tr>
 								</tbody>
 							</table>
@@ -100,7 +102,7 @@
 									  	<td><br>SEGI University & College
 									  	<br><span style="color: B7B7B7">Rating: 4.5</span>
 									  	<br><span class="material-icons" style="color: B7B7B7; font-size: 20px;">place</span><span style="color: B7B7B7">Penang</span>
-									  	<br><a href="https://www.google.com">See More...</a></td>
+									  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 								  	</tr>
 								</tbody>
 							</table>
@@ -117,7 +119,7 @@
 									  	<td style="width: 390px"><img src="tarc.png" alt="TARC Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 									  	<td><br>Tunku Abdul Rahman University College
 									  	<br><span style="color: B7B7B7">Rating: 4.5</span><br><span class="material-icons" style="color: B7B7B7; font-size: 20px;">place</span><span style="color: B7B7B7">Penang</span>
-									  	<br><a href="https://www.google.com">See More...</a></td>
+									  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 								  	</tr>
 								</tbody>
 							</table>
@@ -134,7 +136,7 @@
 									  	<td style="width: 390px"><img src="sunway.png" alt="Sunway Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 									  	<td><br>Sunway College
 									  	<br><span style="color: B7B7B7">Rating: 4.5</span><br><span class="material-icons" style="color: B7B7B7; font-size: 20px;">place</span><span style="color: B7B7B7">Penang</span>
-									  	<br><a href="https://www.google.com">See More...</a></td>
+									  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 								  	</tr>
 								</tbody>
 							</table>
@@ -151,7 +153,7 @@
 									  	<td style="width: 390px"><img src="disted.png" alt="Disted Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 									  	<td><br>Disted College
 									  	<br><span style="color: B7B7B7">Rating: 4.5</span><br><span class="material-icons" style="color: B7B7B7; font-size: 20px;">place</span><span style="color: B7B7B7">Penang</span>
-									  	<br><a href="https://www.google.com">See More...</a></td>
+									  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 								  	</tr>
 								</tbody>
 							</table>
