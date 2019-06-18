@@ -52,8 +52,8 @@
 				<div class="container mt-5" style="height: 200px">
 					<h1 class="chgFontFamily">Institutions</h1>
 				</div>
-				
-					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+
+				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 					<div class="container" style="margin-top: 100px; margin-left: 50px;">
 						<div class="row">
 							<div class="col-md-4" style="width: 100%; margin-top: 150px">
