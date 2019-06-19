@@ -1,7 +1,6 @@
-<?php
-	include('header1.html');
-
-	echo   '
+<html>
+<head>
+			<link rel="shortcut icon" type="image/jpg" href="icon.jpg"/>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 			<!-- Latest compiled and minified CSS -->
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -20,8 +19,103 @@
 			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 
-	include('headercss.html');
-	echo '			h4.chgFontFamily{
+	<title>Edancation</title>
+<style>
+
+body {
+    margin:0;
+	background: #f2f2f2;
+	}
+.navigate 
+{
+   display :block;
+   width: 100%;     /*set the width of the bar */
+   position:fixed;  /*make the nav always stay on top */
+   top :0;     /*position the navbar at the top of the page */ 
+  z-index: 99999;
+}
+nav {
+width:100%;
+background-color:rgba(0,0,0,0.3);
+overflow:auto;
+}
+
+.logo {
+display: inline-block;
+position:absolute;
+vertical-align:top:
+width: 50px;
+height:30px;
+margin-top:10px;
+margin-left:10px;
+}
+
+ul 
+{
+   list-style-type:none; 
+   margin:0;
+   padding:0 0 0 100px;
+   overflow:hidden;
+   background: rgba(0,0,0,0);
+  
+}
+li {
+  float :left;
+  text-align:center;
+  }
+li a {
+  display :block;
+  color:#f2f2f2;   /*Color of the hyperlink word */
+  padding : 14px 20px;       /* */
+  text-decoration: none;     /*decorate the hyperlink word */
+  font-size: 20px;
+  text-align:center;
+}
+li:hover 
+{
+background:black;
+transition:0.5s;
+text-transform:uppercase;
+}
+::-webkit-scrollbar 
+{
+width: 5px;
+}
+::-webkit-scrollbar-track
+{
+ box-shadow: insert 0 0 5px grey
+ border-radius:10px;
+
+}
+::-webkit-scrollbar-thumb
+{
+background: grey;
+border-radius:10px;
+}
+.navigate input[type=text] {
+float:right;
+padding:3px;
+margin-top:12px;
+margin-right:16px;
+border:none;
+font-size:17px;
+border : 1px solid #ccc;
+}
+.navigate button {
+  float: right;
+  padding: 4px 8px;
+  margin-top: 12px;
+  margin-right: 16px;
+  background-color: #555;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.navigate button:hover {
+  background-color: green;
+}
+h4.chgFontFamily{
 					font-family: times;
 				}
 
@@ -44,10 +138,30 @@
 				.rating > span:hover ~ span:before {
 				   content: "\2605";
 				   position: absolute;
-				}';
+				}
 
-	include ('header2.html');
-	echo '
+</style>
+</head>
+<body>
+
+<div class="navigate"> 
+   <a href="homepage.html"><img class="logo" src="icon.jpg" style="margin: 15px 0px 0px 50px;"></a>
+
+<nav>
+<ul>
+    <li><a href="homepage.html" style="text-decoration: none; color: white;">Home</a></li> 
+	
+	<li><a href="#" style="text-decoration: none; color: white;">College</a></li>
+
+	<li><a href="courses.html" style="text-decoration: none; color: white;">Comparision</a></li>
+	<li><a href="events.html" style="text-decoration: none; color: white;">About Us</a></li>
+	<li><a href="project.html" style="text-decoration: none; color: white;">Rate/Review</a></li>
+	<button type="Submit">Register</button>
+	<a href="login.html"><button type="Submit">Login</button></a>
+	<input type="text" placeholder="Search.."/>
+</ul>
+</nav>
+</div>
 			
 			
 			<body style="background-color: E5E5E5">
@@ -171,6 +285,5 @@
 				</div>
 			</body>
 
-			</html>';
+			</html>
 
-?>
