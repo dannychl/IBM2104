@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="shortcut icon" type="image/jpg" href="image/icon.jpg"/>
+<title>Edancation</title>
+<style>
+
+body {
+    margin:0;
+	background: #f2f2f2;
+	}
+.navigate 
+{
+   display :block;
+   width: 100%;     /*set the width of the bar */
+   position:fixed;  /*make the nav always stay on top */
+   top :0;     /*position the navbar at the top of the page */ 
+   
+}
+nav {
+width:100%;
+background-color:rgba(0,0,0,0.3);
+overflow:auto;
+}
+
+.logo {
+display: inline-block;
+position:absolute;
+vertical-align:top:
+width: 50px;
+height:30px;
+margin-top:10px;
+margin-left:10px;
+}
+
+ul 
+{
+   list-style-type:none; 
+   margin:0;
+   padding:0 0 0 100px;
+   overflow:hidden;
+   background: rgba(0,0,0,0);
+  
+}
+li {
+  float :left;
+  text-align:center;
+  }
+li a {
+  display :block;
+  color:#f2f2f2;   /*Color of the hyperlink word */
+  padding : 14px 20px;       /* */
+  text-decoration: none;     /*decorate the hyperlink word */
+  font-size: 20px;
+  text-align:center;
+}
+li:hover 
+{
+background:black;
+transition:0.5s;
+text-transform:uppercase;
+}
+::-webkit-scrollbar 
+{
+width: 5px;
+}
+::-webkit-scrollbar-track
+{
+ box-shadow: insert 0 0 5px grey
+ border-radius:10px;
+
+}
+::-webkit-scrollbar-thumb
+{
+background: grey;
+border-radius:10px;
+}
+.navigate input[type=text] {
+float:right;
+padding:3px;
+margin-top:12px;
+margin-right:16px;
+border:none;
+font-size:17px;
+border : 1px solid #ccc;
+}
+.navigate button {
+  float: right;
+  padding: 4px 8px;
+  margin-top: 12px;
+  margin-right: 16px;
+  background-color: #555;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.navigate button:hover {
+  background-color: green;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="navigate"> 
+   <a href="project.html"><img class="logo" src="image/icon.jpg"></a>
+
+<nav>
+<ul>
+    <li><a href="gallery.html">Home</a></li> 
+	
+	<li><a href="#">College</a></li>
+
+	<li><a href="courses.html">Comparision</a></li>
+	<li><a href="events.html">About Us</a></li>
+	<li><a href="project.html">Rate/Review</a></li>
+	<button type="Submit">Register</button>
+	<a href="login.html"><button type="Submit">Login</button></a>
+	<input type="text" placeholder="Search.."/>
+</ul>
+</nav>
+</div>
+
+</body>
+</html>
