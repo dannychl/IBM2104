@@ -1,6 +1,7 @@
 <?php
-	echo   '<html>
-			<head>
+	include('header1.html');
+
+	echo   '
 			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 			<!-- Latest compiled and minified CSS -->
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,10 +18,10 @@
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 			
 			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 
-			<style>
-				h4.chgFontFamily{
+	include('headercss.html');
+	echo '			h4.chgFontFamily{
 					font-family: times;
 				}
 
@@ -43,10 +44,11 @@
 				.rating > span:hover ~ span:before {
 				   content: "\2605";
 				   position: absolute;
-				}
-			</style>
+				}';
 
-			</head>
+	include ('header2.html');
+	echo '
+			
 			
 			<body style="background-color: E5E5E5">
 				<div class="container mt-5" style="height: 200px">
@@ -75,7 +77,7 @@
 									</div>
 
 									<div class="panel-footer" style="border-radius: 0px 0px 20px 20px;">
-										<center><button type="button" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;">Search <span class="fa fa-search"</span></button></center>
+										<center><a href="https://www.google.com"><button type="submit" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;">Search <span class="fa fa-search"</span></button></a></center>
 									</div>
 								</div>
 							</div>
