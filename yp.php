@@ -67,13 +67,14 @@
 									<div class="panel-body ml-3 mt-3">
 									<h4>Filter</h4>
 									<h4>State: 
-										<select name="state" style="margin-left: 20px; border-radius: 10px;">
+										<select name="state" style="margin-left: 20px; border-radius: 10px; width: 165px;">
 										<option value="0">------State------</option>
 										<option value="1">Kuala Lumpur</option>
 										<option value="2">Penang</option>
 										<option value="3">Perak</option>
 										</select> 
 									</h4>
+									<h4>Name: <input type="text" name="searchName" style="border-radius: 10px; width: 165px; margin-left: 11px;"></h4>
 									</div>
 
 									<div class="panel-footer" style="border-radius: 0px 0px 20px 20px;">
