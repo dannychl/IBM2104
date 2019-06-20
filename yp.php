@@ -94,17 +94,7 @@
 											<br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">Kuala Lumpur</span>
 											<br><a href="new 2.php" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 									  	</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-4"></div>
-		
-							<div class="col-md-8" style="width: 60%; margin-top: -200px; right:80px">
-							  	<table class="table table-hover" style="margin-left: 200px;">
-									<tbody>
+									
 									  	<tr style="height: 150px;">
 										  	<td style="width: 390px;"><img src="segi.png" alt="SEGI Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 										  	<td><br>SEGI University & College
@@ -112,51 +102,21 @@
 										  	<br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">Penang</span>
 										  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 									  	</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-4"></div>
-		
-							<div class="col-md-8" style="width: 60%; margin-top: -10px; right:80px">
-							  	<table class="table table-hover" style="margin-left: 200px;">
-									<tbody>
+									
 									  	<tr style="height: 150px;">
 										  	<td style="width: 390px"><img src="tarc.png" alt="TARC Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 										  	<td><br>Tunku Abdul Rahman University College
 										  	<br><span style="color: #B7B7B7">Rating: 4.5</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">Penang</span>
 										  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 									  	</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-4"></div>
-		
-							<div class="col-md-8" style="width: 60%; margin-top: 20px; right:80px">
-							  	<table class="table table-hover" style="margin-left: 200px;">
-									<tbody>
+									
 									  	<tr style="height: 150px;">
 										  	<td style="width: 390px"><img src="sunway.png" alt="Sunway Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 										  	<td><br>Sunway College
 										  	<br><span style="color: #B7B7B7">Rating: 4.5</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">Penang</span>
 										  	<br><a href="https://www.google.com" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
 									  	</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>			   
-
-						<div class="row">
-							<div class="col-md-4"></div>
-		
-							<div class="col-md-8" style="width: 60%; margin-top: 20px; right:80px">
-							  	<table class="table table-hover" style="margin-left: 200px;">
-									<tbody>
+									
 									  	 <tr style="height: 150px;">
 										  	<td style="width: 390px"><img src="disted.png" alt="Disted Logo" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 										  	<td><br>Disted College
