@@ -1,8 +1,9 @@
 <?php
 	session_start();
-	if(isset($_GET['searched']))
+	if(isset($_GET['searched'])&& !empty($_GET['search_content']))
 	{
 		$search_content = trim($_GET['search_content']);
+		$_SESSION["search_content"] = $search_content;
 
 		$servername = "localhost";
 		$username = "root";
@@ -18,7 +19,7 @@
 		    die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "SELECT * FROM college WHERE name='$search_content' OR location='$search_content' OR rating='$search_content'";
+		$sql = "SELECT * FROM college WHERE UPPER(name) LIKE UPPER('%$search_content%') OR UPPER(location) LIKE UPPER('%$search_content%') OR rating = '$search_content'";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) 
