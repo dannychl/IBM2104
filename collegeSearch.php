@@ -28,24 +28,7 @@ include('header1.html');
 					h1.chgFontFamily{
 						font-family: arial;
 					}
-
-					.rating {
-					  unicode-bidi: bidi-override;
-					  direction: rtl;
-					}
-
-					.rating > span {
-					  display: inline-block;
-					  position: relative;
-					  width: 1.1em;
-					}
-
-					.rating > span:hover:before,
-					.rating > span:hover ~ span:before {
-					   content: "\2605";
-					   position: absolute;
-					}
-
+					
 					::placeholder{
 						color: #C2C2C2;
 					}
