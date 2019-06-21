@@ -59,13 +59,13 @@ include('header1.html');
 					<div class="container mt-5" style="height: 200px">
 						<h1 class="chgFontFamily" style="margin-top: 50px"><a href="yp.php">College</a></h1>
 					</div>
-
+					
 					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 						<div>
 							<form action="yp.php" method="get">
 								<input type="text" name="search_content" style="margin: 100px 0px 0px 310px; width: 50%; height: 40px; border-width: 2px; border-style: solid;" placeholder=" Ex: INTI, 4.5, Penang">
-								<button type="submit" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;">Search <span class="fa fa-search"</span></button<br>
+								<button type="submit" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;" title="Search">Search <span class="fa fa-search"</span></button<br>
 								<input type="hidden" name="searched" value="true">
 							</form>
 						</div>
@@ -103,7 +103,8 @@ include('header1.html');
 														  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 														  	<td><br>' . $row["name"] . '
 														  	<br><span style="color: #B7B7B7">Rating: ' . $row["rating"] . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
-														  	<br><a href="' . $row["linksource"] . '" class="btn btn-success" style="margin-top: 10px; float: right;">See More --></a></td>
+														  	<br>
+														  	<a href="' . $row["linksource"] . '" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
 													  	</tr>';
 											    } 
 											} 
@@ -113,6 +114,7 @@ include('header1.html');
 							</div>			   
 						</div>
 					</div>
+					
 				</body>
 
 				</html>';
