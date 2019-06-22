@@ -33,7 +33,7 @@
 						  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 						  	<td><br>' . $row["name"] . '
 						  	<br><span style="color: #B7B7B7">Rating: ' . $row["rating"] . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
-						  	<br><a href="' . $row["linksource"] . '" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
+						  	<br><a href="college.html" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
 					  	</tr>';
 
 			       /* echo "id: " . $row["id"]. "<br>Name: " . $row["name"]. "<br>Location: " . $row["location"]. "<br>Rating: " . $row["rating"] . "<br>Pic Source: " . $row["picsource"] . "<br>";*/

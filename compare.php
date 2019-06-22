@@ -1,4 +1,22 @@
 <?php
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "testing";
+
+	//start connection with sql
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if($conn->connect_error)
+	{
+	    die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "SELECT * FROM college";
+	$result = $conn->query($sql);
+
+
 	include ("header1.html");
 	echo   '
 				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

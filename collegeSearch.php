@@ -87,7 +87,7 @@ include('header1.html');
 														  	<td><br>' . $row["name"] . '
 														  	<br><span style="color: #B7B7B7">Rating: ' . $row["rating"] . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
 														  	<br>
-														  	<a href="' . $row["linksource"] . '" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
+														  	<a href="college.html" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
 													  	</tr>';
 											    } 
 											} 
