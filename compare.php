@@ -18,8 +18,15 @@
 				
 				<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+
 	include ("headercss.html");
 	echo '							
+					button.mybutton{
+						width: 50px;
+						height: 50px;
+						margin: 50px 0px 0px 50px;
+					}
+
 					::placeholder{
 						color: #C2C2C2;
 					}
@@ -37,14 +44,49 @@
 					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 						<form action="compare.php" method="get">
+
+							<button onclick="deleteTable()" type="button" class="btn btn-success mybutton">&#x2212</button>							
+							<button onclick="addTable()" type="button" class="btn btn-success mybutton" style="margin-left: 0px;">&#x2b</button>
+
+							<button type="submit" class="btn btn-success mybutton" style="width: 200px; height: 50px; border-radius: 20px">Compare</button>
 							<input type="hidden" name="compare" value="true">
-							<button type="submit" class="btn btn-success" style="margin: 50px 0px 0px 50px; width: 200px; height: 50px; border-radius: 20px">Compare</button>
 						</form>
+						<table>
+							<tr id="addTable">
+							</tr>
+							
+						</table>
 
 					</div>
 					
 				</body>
+				<script>
+					function addTable(){
+						document.getElementById("addTable").innerHTML += 
+						"<td>" +
+						"<select name=' ."collegeid".'>" +
+							"<option value='."1".'>INTI</option>" +
+							"<option value='."2".'>SEGI</option>" +
+							"<option value='."3".'>TARC</option>" +
+							"<option value='."4".'>Sunway</option>" +
+							"<option value='."5".'>Disted</option>" +
+						"</select>" +
+						"</td>";
+					}
 
+					function deleteTable(){
+						document.getElementById("addTable").innerHTML = 
+						"<td>" +
+						"<select name=' ."collegeid".'>" +
+							"<option value='."1".'>INTI</option>" +
+							"<option value='."2".'>SEGI</option>" +
+							"<option value='."3".'>TARC</option>" +
+							"<option value='."4".'>Sunway</option>" +
+							"<option value='."5".'>Disted</option>" +
+						"</select>" +
+						"</td>";
+					}
+				</script>
 				</html>';
 
 ?>
