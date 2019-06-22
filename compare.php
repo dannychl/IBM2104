@@ -15,6 +15,16 @@
 
 	$sql = "SELECT * FROM college";
 	$result = $conn->query($sql);
+	$id_from_database = [];
+	while($row = $result->fetch_assoc())
+	{
+		$id_from_database[$row["id"]] = $row["name"];
+	}
+	
+
+	/*foreach ($id_from_database as $key => $value) {
+		echo "The name for ".$key." is ".$value."<br>";
+	}*/
 
 
 	include ("header1.html");
@@ -49,62 +59,57 @@
 						color: #C2C2C2;
 					}
 					';
-	include ("header2.html");
+	//include ("header2.html");
 
-	echo '
-				
-				
-				
-					<div class="container mt-5" style="height: 200px">
-						<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparision</a></h1>
-					</div>
-					
-					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+$str = <<<EOD
+</style>
+</head>
+<body>
+<div class="container mt-5" style="height: 200px">
+<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparision</a></h1>
+</div>
 
-						<form action="compare.php" method="get">
+<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
-							<button onclick="deleteTable()" type="button" class="btn btn-success mybutton">&#x2212</button>							
-							<button onclick="addTable()" type="button" class="btn btn-success mybutton" style="margin-left: 0px;">&#x2b</button>
+<form action="compare.php" method="get">
 
-							<button type="submit" class="btn btn-success mybutton" style="width: 200px; height: 50px; border-radius: 20px">Compare</button>
-							<input type="hidden" name="compare" value="true">
-						</form>
-						<table>
-							<tr id="addTable">
-							</tr>
-							
-						</table>
+<button onclick="deleteTable()" type="button" class="btn btn-success mybutton">&#x2212</button>							
+<button onclick="addTable()" type="button" class="btn btn-success mybutton" style="margin-left: 0px;">&#x2b</button>
 
-					</div>
-					
-				</body>
-				<script>
-					function addTable(){
-						document.getElementById("addTable").innerHTML += 
-						"<td>" +
-						"<select name=' ."collegeid".'>" +
-							"<option value='."1".'>INTI</option>" +
-							"<option value='."2".'>SEGI</option>" +
-							"<option value='."3".'>TARC</option>" +
-							"<option value='."4".'>Sunway</option>" +
-							"<option value='."5".'>Disted</option>" +
-						"</select>" +
-						"</td>";
-					}
+<button type="submit" class="btn btn-success mybutton" style="width: 200px; height: 50px; border-radius: 20px">Compare</button>
+<input type="hidden" name="compare" value="true">
+</form>
+<table>
+<tr id="addTable">
+</tr>
 
-					function deleteTable(){
-						document.getElementById("addTable").innerHTML = 
-						"<td>" +
-						"<select name=' ."collegeid".'>" +
-							"<option value='."1".'>INTI</option>" +
-							"<option value='."2".'>SEGI</option>" +
-							"<option value='."3".'>TARC</option>" +
-							"<option value='."4".'>Sunway</option>" +
-							"<option value='."5".'>Disted</option>" +
-						"</select>" +
-						"</td>";
-					}
-				</script>
-				</html>';
+</table>
 
+</div>
+
+</body>
+<script>
+function addTable(){
+document.getElementById("addTable").innerHTML += 
+"<td><select name='collegeid'><?php {echo '<option value=$key>$value</option>'; }?></select></td>";
+}
+
+function deleteTable(){
+document.getElementById("addTable").innerHTML = 
+"<td>" +
+"<select name='collegeid'>" +
+"<option value='1'>INTI</option>" +
+"<option value='2'>SEGI</option>" +
+"<option value='3'>TARC</option>" +
+"<option value='4'>Sunway</option>" +
+"<option value='5'>Disted</option>" +
+"</select>" +
+"</td>";
+}
+</script>
+</html>
+EOD;
+
+echo $str;
+mysqli_close($conn);
 ?>
