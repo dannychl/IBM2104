@@ -13,13 +13,11 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM college";
-	$result = $conn->query($sql);
-	$id_from_database = [];
-	while($row = $result->fetch_assoc())
+	//$id_from_database = [];
+	/*while($row = $result->fetch_assoc())
 	{
 		$id_from_database[$row["id"]] = $row["name"];
-	}
+	}*/
 	
 
 	/*foreach ($id_from_database as $key => $value) {
@@ -55,61 +53,66 @@
 						margin: 50px 0px 0px 50px;
 					}
 
+					td{
+						width: 200px; 
+						height: 100px; 
+						margin: 20px 20px 20px 20px;
+						font-size: 20px;
+						text-align: center;
+					}
+
 					::placeholder{
 						color: #C2C2C2;
 					}
 					';
-	//include ("header2.html");
+	include ("header2.html");
 
-$str = <<<EOD
-</style>
-</head>
-<body>
-<div class="container mt-5" style="height: 200px">
-<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparision</a></h1>
-</div>
+	echo '
+				</style>
+				</head>
+				<body>
+				<div class="container mt-5" style="height: 200px">
+				<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparision</a></h1>
+				</div>
 
-<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
-<form action="compare.php" method="get">
 
-<button onclick="deleteTable()" type="button" class="btn btn-success mybutton">&#x2212</button>							
-<button onclick="addTable()" type="button" class="btn btn-success mybutton" style="margin-left: 0px;">&#x2b</button>
+				<table border=2 style="margin: 80px 50px 20px 50px">
+				<tr>
+				<td style="width: 200px; height: 100px"></td>';
+				$sql = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
+				$result = $conn->query($sql);
 
-<button type="submit" class="btn btn-success mybutton" style="width: 200px; height: 50px; border-radius: 20px">Compare</button>
-<input type="hidden" name="compare" value="true">
-</form>
-<table>
-<tr id="addTable">
-</tr>
+				while($col = $result->fetch_assoc()){
+					echo "<td><center>".$col['COLUMN_NAME']."</center></td>";
+				}
+				echo "</tr>";
 
-</table>
 
-</div>
+				$sql = "SELECT * FROM college";
+				$result = $conn->query($sql);
+				while($row = $result->fetch_assoc())
+				{
+					echo '<tr>
+							<td><img src="'.$row["picsource"].'" style="width: 200px; height: 100px; margin: 20px 20px 20px 20px;"></td>
+							<td>'.$row["id"].'</td>
+							<td>'.$row["name"].'</td>
+							<td>'.$row["location"].'</td>
+							<td>'.$row["rating"].'</td>
+							<td>'.$row["picsource"].'</td>
+							<td>'.$row["linksource"].'</td>
+							<td>'.$row["altimg"].'</td>
+							</tr>';
+				}
+					
+	echo'		
+				</table>
+				</div>
+				</body>
+				</html>';
 
-</body>
-<script>
-function addTable(){
-document.getElementById("addTable").innerHTML += 
-"<td><select name='collegeid'><?php {echo '<option value=$key>$value</option>'; }?></select></td>";
-}
 
-function deleteTable(){
-document.getElementById("addTable").innerHTML = 
-"<td>" +
-"<select name='collegeid'>" +
-"<option value='1'>INTI</option>" +
-"<option value='2'>SEGI</option>" +
-"<option value='3'>TARC</option>" +
-"<option value='4'>Sunway</option>" +
-"<option value='5'>Disted</option>" +
-"</select>" +
-"</td>";
-}
-</script>
-</html>
-EOD;
 
-echo $str;
 mysqli_close($conn);
 ?>
