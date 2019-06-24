@@ -94,15 +94,14 @@
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc())
 				{
-					echo '<tr>
-							<td><img src="'.$row["picsource"].'" style="width: 200px; height: 100px; margin: 20px 20px 20px 20px;"></td>
-							<td>'.$row["id"].'</td>
-							<td>'.$row["name"].'</td>
-							<td>'.$row["location"].'</td>
-							<td>'.$row["rating"].'</td>
-							<td>'.$row["picsource"].'</td>
-							<td>'.$row["linksource"].'</td>
-							<td>'.$row["altimg"].'</td>
+					echo '	<tr>
+								<td><img src="'.$row["picsource"].'" style="width: 200px; height: 100px; margin: 20px 20px 20px 20px;"></td>
+								<td>'.$row["id"].'</td>
+								<td>'.$row["name"].'</td>
+								<td>'.$row["location"].'</td>
+								<td>'.$row["rating"].'</td>
+								<td>'.$row["picsource"].'</td
+								<td>'.$row["altimg"].'</td>
 							</tr>';
 				}
 					
