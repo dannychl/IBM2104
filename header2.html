@@ -4,7 +4,7 @@
 
 <div class="navigate"> 
    <a href="homepage.html"><img class="logo" src="icon.jpg" style="margin: 15px 0px 0px 50px;"></a>
-
+<form action="yp.php" method="get">
 <nav>
 <ul>
     <li><a href="homepage.html" style="text-decoration: none; color: white;">Home</a></li> 
@@ -16,7 +16,10 @@
 	<li><a href="project.html" style="text-decoration: none; color: white;">Rate/Review</a></li>
 	<button type="Submit">Register</button>
 	<a href="login.html"><button type="Submit">Login</button></a>
-	<input type="text" placeholder="Search.."/>
+	<button type="submit" style="background-color: green;"><span class="fa fa-search"></span></button>
+	<input type="text" name="search_content" placeholder="Search.."/> 
+	<input type="hidden" name="searched" value="true">
 </ul>
 </nav>
+</form>
 </div>
