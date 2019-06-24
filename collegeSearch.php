@@ -65,7 +65,7 @@ include('header1.html');
 						<div class="container" style="margin: 100px 0px 0px 200px">
 							<div class="row">
 								<div class="col-md-8" style="width: 60%; right:80px">
-								  	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px;">
+								  	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px; border: 1px solid black">
 										<tbody>';
 
 										$servername = "localhost";
