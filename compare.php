@@ -100,7 +100,7 @@
 								<td>'.$row["name"].'</td>
 								<td>'.$row["location"].'</td>
 								<td>'.$row["rating"].'</td>
-								<td>'.$row["picsource"].'</td
+								<td>'.$row["picsource"].'</td>
 								<td>'.$row["altimg"].'</td>
 							</tr>';
 				}
