@@ -79,6 +79,14 @@ body {
 	transition: transform 1.5s;
 }
 
+.zoomPic{
+	transition: transform 0.2s;
+}
+
+.zoomPic:hover{
+	transform: scale(1.1); 
+	}
+
 .zoomAbt:hover{
 	-ms-transform: scale(1.2); /* IE 9 */
 	-webkit-transform: scale(1.2); /* Safari 3-8 */
@@ -188,22 +196,114 @@ body {
 .colleges{
 	width:340px;
 	height:250px;
-	margin-left:6%;
-	margin-bottom:5%;
+	margin:2%;
 	float:left;
+	margin-bottom:5%;
 }
+
+.frameColleges{
+	margin-left:10%;
+}
+
 .colleges h3{
 	text-align:center;
+	border: 1px solid black;
 	font-size: 15px;
+	background-color:white;
+	padding:10px;
+	width:328px;
+	border-radius: 20px;
 }
 
-.colleges h4{
+.textedit h4{
 	font-size: 15px;
-	margin-left:50%;
-	margin-bottom: 5%;
+	margin-bottom: 30%;
+	text-align:center;
+	border: 1px solid black;
+	background-color:white;
+	padding:10px;
+	width:328px;
+	border-radius: 20px;
+}
+<------ College Picture  
+.myImg{
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+.myImg:hover {opacity: 0.7;}
 
+.modal{
+		display :none; /* Hidden by default */
+		position: fixed;	/* Stay in place */
+		padding-top: 150px; /* Location of the box */
+		left:0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+		
+.modal-content{
+				margin:auto;
+				display:block;
+				width: 80%;
+				max-width: 700px;
+			  }
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption{
+						 -webkit-animation-name: zoom;
+						 -webkit-animation-duration: 0.6s;
+						 animation-name: zoom;
+						 animation-duration: 0.6s;
+						 }
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.close{
+	position:absolute;
+	top:15px;
+	right:35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus{
+	color: #bbb;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+} -->
 </style>
 <body>
   <div class= "caption-container">
@@ -216,7 +316,7 @@ body {
 			<div class="zoomin">
             <h2>Every College Decides Your Future</h2>
 			</div>
-            <a href="yp.php" class="btn">Start Now</a>
+            <a href="https://example.com/" class="btn">Start Now</a>
         </div>
 	</div>
 	</section>
@@ -237,7 +337,6 @@ body {
 	</div>
 	<a class="prev" onclick="plusSlides(-1)"><</a>
 	<a class="next" onclick="plusSlides(1)">></a>
-  <br>
  <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -253,19 +352,12 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
 <br>
@@ -275,29 +367,45 @@ function showSlides(n) {
 <h2> Register here to begin your personalized research </h2> <p> Click for more information </p> <br>
 </div>
 
+<div class= "frameColleges">
 <div class= "colleges">
-<img src="intisubang.jpg" width="380px" height="240px">
+<div class = "zoomPic">
+<img src="intisubang.jpg" width="350px" height="240px">
 <h3> Inti College Subang </h3>
 </div>
+</div>
 
 <div class= "colleges">
-<img src="intisubang.jpg" width="380px" height="240px">
+<div class = "zoomPic">
+<img src="intisubang.jpg" width="350px" height="240px">
 <h3> Inti College Subang </h3>
 </div>
+</div>
 
 <div class= "colleges">
-<img src="intisubang.jpg" width="380px" height="240px">
+<div class = "zoomPic">
+<img src="intisubang.jpg" width="350px" height="240px">
 <h3> Inti College Subang </h3>
 </div>
-
-<div class= "colleges">
-<img src="intisubang.jpg" width="380px" height="240px" style="margin-left:50%">
-<h4> Inti College Subang </h4>
 </div>
 
 <div class= "colleges">
-<img src="intisubang.jpg" width="380px" height="240px" style="margin-left:80%">
-<h4> Inti College Subang </h4>
+	<div class = "zoomPic">
+<img src="intisubang.jpg" width="350px" height="240px" style="margin-left:45%">
+		<div class ="textedit" style="margin-left: 45%">
+		<h4> Inti College Subang </h4>
+		</div>
+	</div>
+</div>
+
+<div class= "colleges">
+	<div class = "zoomPic">
+		<img src="intisubang.jpg" width="350px" height="240px" style="margin-left:75%">
+			<div class ="textedit" style="margin-left: 75%">
+				<h4> Inti College Subang </h4>
+			</div>
+	</div>
+</div>
 </div>
 </body>
 
