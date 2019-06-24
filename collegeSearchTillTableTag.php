@@ -7,7 +7,7 @@ include('header1.html');
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 				<!-- jQuery library -->
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 				<!-- Popper JS -->
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,7 +18,15 @@ include('header1.html');
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 				
 				<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				<script>
+				jQuery(document).ready(function($) {
+				    $(".clickable-row").click(function() {
+				        window.location = $(this).data("href");
+				    });
+				});
+				</script>
+				';
 
 		include('headercss.html');
 		echo '			h4.chgFontFamily{

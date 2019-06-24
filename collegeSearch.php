@@ -7,7 +7,7 @@ include('header1.html');
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 				<!-- jQuery library -->
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 				<!-- Popper JS -->
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,7 +18,16 @@ include('header1.html');
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 				
 				<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+				<script>
+				jQuery(document).ready(function($) {
+				    $(".clickable-row").click(function() {
+				        window.location = $(this).data("href");
+				    });
+				});
+				</script>
+				';
 
 		include('headercss.html');
 		echo '			h4.chgFontFamily{
@@ -82,7 +91,7 @@ include('header1.html');
 											    while($row = $result->fetch_assoc()) 
 											    {
 											    	echo '
-											    		<tr style="height: 150px;">
+											    		<tr class="clickable-row" data-href="college.html" style="height: 150px;">
 														  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 														  	<td><br>' . $row["name"] . '
 														  	<br><span style="color: #B7B7B7">Rating: ' . $row["rating"] . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
