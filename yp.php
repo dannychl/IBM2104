@@ -29,7 +29,7 @@
 			    while($row = $result->fetch_assoc()) 
 			    {
 			    	echo '
-			    	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
+			    	<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
 						<tbody>
 				    		<tr class="clickable-row" data-href="college.html" style="height: 150px;">
 							  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>

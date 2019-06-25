@@ -101,7 +101,7 @@
 				while($row = $result->fetch_assoc())
 				{
 					echo '	<tr>
-								<td><img src="'.$row["picsource"].'" style="width: 200px; height: 100px; margin: 20px 20px 20px 20px;"></td>
+								<td><img src="'.$row["picsource"].'" style="width: 250px; height: 100px; margin: 20px 20px 20px 20px;"></td>
 								<td>'.$row["name"].'</td>
 								<td>'.$row["type"].'</td>
 								<td>'.$row["intake"].'</td>

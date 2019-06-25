@@ -58,6 +58,16 @@ include('header1.html');
 					::placeholder{
 						color: #C2C2C2;
 					}
+
+					.zoomin{
+						padding: 100px;
+						transition: transform 0.3s;
+					}
+
+					.zoomin:hover{
+						
+						transform: scale(1.1); 
+					}
 					';
 
 		include ('header2.html');
