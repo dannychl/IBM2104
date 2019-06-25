@@ -40,8 +40,7 @@ include('header1.html');
 					
 					::placeholder{
 						color: #C2C2C2;
-					}
-					';
+					}';
 
 		include ('header2.html');
 		echo '
@@ -64,9 +63,7 @@ include('header1.html');
 
 						<div class="container" style="margin: 100px 0px 0px 200px">
 							<div class="row">
-								<div class="col-md-8" style="width: 60%; right:80px">
-								  	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px; border: 1px solid black">
-										<tbody>';
+								<div class="col-md-8" style="width: 60%; right:80px">';
 
 										$servername = "localhost";
 										$username = "root";
@@ -91,18 +88,18 @@ include('header1.html');
 											    while($row = $result->fetch_assoc()) 
 											    {
 											    	echo '
+											    	<table class="table table-hover" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
+														<tbody>
 											    		<tr class="clickable-row" data-href="college.html" style="height: 150px;">
 														  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 														  	<td><br>' . $row["name"] . '
 														  	<br><span style="color: #B7B7B7">Rating: ' . $row["rating"] . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
 														  	<br>
 														  	<a href="college.html" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
-													  	</tr>';
+													  	</tr></tbody></table>';
 											    } 
 											} 
-								echo '	</tbody>
-									</table>
-								</div>
+						echo '	</div>
 							</div>			   
 						</div>
 					</div>

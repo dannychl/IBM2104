@@ -78,30 +78,34 @@
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 
-				<table border=2 style="margin: 80px 50px 20px 50px">
+				<table border=2 align="center" style="margin-top: 80px; margin-bottom: 20px;" >
 				<tr>
-				<td style="width: 200px; height: 100px"></td>';
-				$sql = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
+				<td style="width: 200px; height: 100px"></td>
+					<td><center>Name</center></td>
+					<td><center>Type</center></td>
+					<td><center>Intake</center></td>
+					<td><center>Location</center></td>
+					<td><center>Course</center></td>';
+				//$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
+				/*$sql = "SELECT college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id;";
 				$result = $conn->query($sql);
 
 				while($col = $result->fetch_assoc()){
 					echo "<td><center>".$col['COLUMN_NAME']."</center></td>";
-				}
+				}*/
 				echo "</tr>";
 
 
-				$sql = "SELECT * FROM college";
+				$sql = "SELECT college.picsource, college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc())
 				{
 					echo '	<tr>
 								<td><img src="'.$row["picsource"].'" style="width: 200px; height: 100px; margin: 20px 20px 20px 20px;"></td>
-								<td>'.$row["id"].'</td>
 								<td>'.$row["name"].'</td>
+								<td>'.$row["type"].'</td>
+								<td>'.$row["intake"].'</td>
 								<td>'.$row["location"].'</td>
-								<td>'.$row["rating"].'</td>
-								<td>'.$row["picsource"].'</td>
-								<td>'.$row["altimg"].'</td>
 							</tr>';
 				}
 					
