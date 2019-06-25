@@ -61,6 +61,11 @@
 						text-align: center;
 					}
 
+					.table_border{
+						border-collapse: separate;
+						border-spacing:;
+					}
+
 					::placeholder{
 						color: #C2C2C2;
 					}
@@ -78,7 +83,7 @@
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 
-				<table border=2 align="center" style="margin-top: 80px; margin-bottom: 20px;" >
+				<table border=2 align="center" class="table_border" style="margin-top: 80px; margin-bottom: 20px;" >
 				<tr>
 				<td style="width: 200px; height: 100px"></td>
 					<td><center>Name</center></td>
@@ -105,6 +110,7 @@
 								<td>'.$row["name"].'</td>
 								<td>'.$row["type"].'</td>
 								<td>'.$row["intake"].'</td>
+								<td>'.$row["location"].'</td>
 								<td>'.$row["location"].'</td>
 							</tr>';
 				}
