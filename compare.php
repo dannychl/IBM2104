@@ -111,8 +111,15 @@
 								<td>'.$row["type"].'</td>
 								<td>'.$row["intake"].'</td>
 								<td>'.$row["location"].'</td>
-								<td>'.$row["location"].'</td>
-							</tr>';
+								<td>';
+					$sql1 = "SELECT course.course_name FROM course INNER JOIN college ON course.college_id = college.id";
+					$result1 = $conn->query($sql1);
+					while($row1 = $result1->fetch_assoc())
+					{
+						echo ''.$row1["course_name"].'<br>';
+					}
+								
+					echo '</td></tr>';
 				}
 					
 	echo'		
