@@ -68,7 +68,10 @@ include('header1.html');
 						
 						transform: scale(1.1); 
 					}
-					';
+					
+					</style>
+					</head>
+					<body>';
 
 		include ('header2.html');
 		echo '

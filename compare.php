@@ -69,7 +69,10 @@
 					::placeholder{
 						color: #C2C2C2;
 					}
-					';
+					
+					</style>
+					</head>
+					<body class="change">';
 	include ("header2.html");
 
 	echo '
