@@ -53,10 +53,10 @@
 						margin: 50px 0px 0px 50px;
 					}
 
-					td{
+					td.setCenter{
 						width: 200px; 
 						height: 100px; 
-						margin: 20px 20px 20px 20px;
+						margin: 20px;
 						font-size: 20px;
 						text-align: center;
 					}
@@ -89,11 +89,11 @@
 				<table border=2 align="center" class="table_border" style="margin-top: 80px; margin-bottom: 20px;" >
 				<tr>
 				<td style="width: 200px; height: 100px"></td>
-					<td><center>Name</center></td>
-					<td><center>Type</center></td>
-					<td><center>Intake</center></td>
-					<td><center>Location</center></td>
-					<td><center>Course</center></td>';
+					<td class="setCenter">Name</td>
+					<td class="setCenter">Type</td>
+					<td class="setCenter">Intake</td>
+					<td class="setCenter">Location</td>
+					<td class="setCenter">Course</td>';
 				//$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
 				/*$sql = "SELECT college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id;";
 				$result = $conn->query($sql);
@@ -104,22 +104,28 @@
 				echo "</tr>";
 
 
-				$sql = "SELECT college.picsource, college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
+				$sql = "SELECT college.id, college.picsource, college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc())
 				{
 					echo '	<tr>
-								<td><img src="'.$row["picsource"].'" style="width: 250px; height: 100px; margin: 20px 20px 20px 20px;"></td>
-								<td>'.$row["name"].'</td>
-								<td>'.$row["type"].'</td>
-								<td>'.$row["intake"].'</td>
-								<td>'.$row["location"].'</td>
-								<td>';
+								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 250px; height: 100px; margin: 20px 20px 20px 20px;"></td>
+								<td class="setCenter">'.$row["name"].'</td>
+								<td class="setCenter">'.$row["type"].'</td>
+								<td class="setCenter">'.$row["intake"].'</td>
+								<td class="setCenter">'.$row["location"].'</td>
+								<td style="margin: 20px; font-size: 20px; padding-left: 30px">';
 					$sql1 = "SELECT course.course_name FROM course INNER JOIN college ON course.college_id = college.id";
 					$result1 = $conn->query($sql1);
+					$i = 0;
 					while($row1 = $result1->fetch_assoc())
 					{
 						echo ''.$row1["course_name"].'<br>';
+						$i++;
+						if($i==2)
+						{
+							echo '<a href="college.php?id='.$row["id"].'">More...</a>';
+						}
 					}
 								
 					echo '</td></tr>';
