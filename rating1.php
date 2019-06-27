@@ -1,18 +1,26 @@
 <?php	
-	$conn = new mysqli('localhost', 'root', '','ratingsystem');
+	$conn = new mysqli('localhost', 'root', '','testing');
 	if(isset($_POST['save'])){
-		
+
 		$uID = $conn->real_escape_string($_POST['uID']);
 		$ratedIndex = $conn->real_escape_string($_POST['ratedIndex']);
 		$ratedIndex++;
-		
-		if (!$uID){
-			$conn->query("INSERT INTO stars(ratedIndex) VALUES ('$ratedIndex')");
+
+		$result = $conn->query("SELECT id FROM stars WHERE ID = $uID");
+		if ($result->num_rows == 0){
+			echo "<h1>HIHI</h1>";
+			$conn->query("INSERT INTO stars(rateIndex, id) VALUES ('$ratedIndex', '$uID')");
 			$sql =$conn->query(" SELECT id FROM stars ORDER BY id DESC LIMIT 1");
 			$uData = $sql->fetch_assoc();
 			$uID = $uData['id'];
 		}else
-			$conn->query("UPDATE stars SET ratedIndex = '$ratedIndex' WHERE id = '$uID'");
+		{	
+			if($conn->query("UPDATE stars SET rateIndex = '$ratedIndex' WHERE id = '$uID'")){
+				echo "success";
+			}
+			else
+				echo "failed".$conn->error;
+		}
 		
 		exit(json_encode(array('id' => $uID)));
 	}
@@ -49,7 +57,8 @@
 		src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous">
 	</script>
 	<script>
-		var ratedIndex = -1, uID = 0;
+		var ratedIndex = -1;
+		var uID = 0;
 		
 		$(document).ready(function(){
 			resetStarColors();
