@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include 'header1.html';
 	include 'headercss.html';
 	echo '
@@ -306,7 +307,7 @@
 </head>
 <body>';
 
-include 'header2.html';
+include 'header2.php';
 
 echo '<div class= "caption-container">
   <div class="mySlides">

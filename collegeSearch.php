@@ -55,7 +55,7 @@ include('header1.html');
 					</head>
 					<body class="change">';
 
-		include ('header2.html');
+		include ('header2.php');
 		echo '
 				
 				

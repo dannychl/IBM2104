@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -62,7 +63,7 @@
           <body>';
           
 
- include 'header2.html';
+ include 'header2.php';
 
 
   if ($result->num_rows > 0) {

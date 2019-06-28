@@ -73,7 +73,7 @@ include('header1.html');
 					</head>
 					<body>';
 
-		include ('header2.html');
+		include ('header2.php');
 		echo '
 				
 				
@@ -86,7 +86,7 @@ include('header1.html');
 
 						<div>
 							<form action="yp.php" method="get">
-								<input type="text" name="search_content" style="margin: 100px 0px 0px 310px; width: 50%; height: 40px; border-width: 2px; border-style: solid;" placeholder=" ' . $_SESSION["search_content"] . '">
+								<input type="text" name="search_content" style="margin: 100px 0px 0px 310px; width: 50%; height: 40px; border-width: 2px; border-style: solid;" placeholder=" ' . $search_content. '">
 								<button type="submit" class="btn btn-success" style="height: 40px; width: 100px; border-radius: 18px;" title="Search">Search <span class="fa fa-search"</span></button<br>
 								<input type="hidden" name="searched" value="true">
 							</form>

@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -73,7 +73,7 @@
 					</style>
 					</head>
 					<body class="change">';
-	include ("header2.html");
+	include ("header2.php");
 
 	echo '
 				</style>
@@ -89,7 +89,7 @@
 				<table border=2 align="center" class="table_border" style="margin-top: 80px; margin-bottom: 20px;" >
 				<tr>
 				<td style="width: 200px; height: 100px"></td>
-					<td class="setCenter">Name</td>
+					<td class="setCenter">Rating</td>
 					<td class="setCenter">Type</td>
 					<td class="setCenter">Intake</td>
 					<td class="setCenter">Location</td>
@@ -104,13 +104,13 @@
 				echo "</tr>";
 
 
-				$sql = "SELECT college.id, college.picsource, college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
+				$sql = "SELECT college.id, college.picsource, college.rating, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc())
 				{
 					echo '	<tr>
 								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 250px; height: 100px; margin: 20px 20px 20px 20px;"></td>
-								<td class="setCenter">'.$row["name"].'</td>
+								<td class="setCenter">'.$row["rating"].'</td>
 								<td class="setCenter">'.$row["type"].'</td>
 								<td class="setCenter">'.$row["intake"].'</td>
 								<td class="setCenter">'.$row["location"].'</td>

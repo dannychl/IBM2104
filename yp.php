@@ -2,8 +2,9 @@
 	session_start();
 	if(isset($_GET['searched']) && !empty($_GET['search_content']))
 	{
+		//unset the session
+		//unset($_SESSION['loged_in']);
 		$search_content = trim($_GET['search_content']);
-		$_SESSION["search_content"] = $search_content;
 
 		$servername = "localhost";
 		$username = "root";
