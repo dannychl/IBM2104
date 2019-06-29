@@ -14,8 +14,8 @@
 		if(isset($_SESSION["loged_in"]))
 		echo '<li><a href="https://www.google.com" style="text-decoration: none; color: white;">Add College</a></li>';
 	?>
-	<button type="Submit">Register</button>
-	<a href="login.html"><button type="Submit">Login</button></a>
+	<a href="signUp1.php"><button type="button">Register</button></a>
+	<a href="login11.php"><button type="button">Login</button></a>
 	<button type="submit" style="background-color: green;"><span class="fa fa-search"></span></button>
 	<input type="text" name="search_content" placeholder="Search..."/> 
 	<input type="hidden" name="searched" value="true">

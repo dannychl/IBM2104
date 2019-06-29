@@ -71,7 +71,7 @@ include('header1.html');
 					
 					</style>
 					</head>
-					<body>';
+					<body class="change">';
 
 		include ('header2.php');
 		echo '
