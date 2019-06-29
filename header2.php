@@ -11,11 +11,26 @@
 	<li><a href="events.html" style="text-decoration: none; color: white;">About Us</a></li>
 	<li><a href="project.html" style="text-decoration: none; color: white;">Rate/Review</a></li>
 	<?php 
-		if(isset($_SESSION["loged_in"]))
-		echo '<li><a href="https://www.google.com" style="text-decoration: none; color: white;">Add College</a></li>';
+		if(isset($_SESSION["admin_loged_in"]))
+		{
+			if($_SESSION["admin_loged_in"])
+			echo '<li><a href="https://www.google.com" style="text-decoration: none; color: white;">Add College</a></li>';
+
+		}
+		
 	?>
 	<a href="signUp1.php"><button type="button">Register</button></a>
-	<a href="login11.php"><button type="button">Login</button></a>
+	<?php
+		if(isset($_SESSION["loged_in"]))
+		{
+			if($_SESSION["loged_in"])
+				echo '<button type="button">Log out</button>';
+			else
+				echo '<a href="login11.php"><button type="button">Login</button></a>';
+				
+		}
+	?>
+	
 	<button type="submit" style="background-color: green;"><span class="fa fa-search"></span></button>
 	<input type="text" name="search_content" placeholder="Search..."/> 
 	<input type="hidden" name="searched" value="true">

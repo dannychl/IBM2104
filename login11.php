@@ -1,6 +1,33 @@
 <?php
-	if(isset($_POST['submitted'])){
-		header("Location: homepage.php");
+	session_start();
+	if(isset($_GET['submitted'])){
+
+		$email = $_GET['email'];
+		$pass = $_GET['pass'];
+
+		$conn = new mysqli("localhost", "root", "", "testing");
+		if($conn->connect_error)
+		{
+			die("Cannot connect to database");
+		}
+		
+		$sql = "SELECT admin FROM USER WHERE email = '$email' AND pass = '$pass'";
+		$result = $conn->query($sql);
+
+		if($result->num_rows > 0)
+		{
+			$_SESSION["loged_in"] = true;
+			$row = $result->fetch_assoc();
+			$_SESSION["admin_loged_in"] = $row['admin'];
+
+			header("Location: homepage.php");
+		}
+		else
+		{
+			//echo '<script>window.alert("hihi")</script>';
+			//header("Location: login11.php");
+		}
+		
 } else {
 	echo'<!DOCTYPE html>
 		<head>
@@ -19,7 +46,7 @@
 					<img src="lmage/pic1.jpg" alt="Member">
 				</div>
 
-				<form class="login100-form validate-form" action="login11.php" method="post">
+				<form class="login100-form validate-form" action="login11.php" method="get">
 					<span class="login100-form-title">
 						<b>Member Login</b>
 					</span>
