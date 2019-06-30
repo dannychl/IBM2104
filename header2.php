@@ -14,7 +14,7 @@
 		if(isset($_SESSION["admin_loged_in"]))
 		{
 			if($_SESSION["admin_loged_in"])
-			echo '<li><a href="https://www.google.com" style="text-decoration: none; color: white;">Add College</a></li>';
+			echo '<li><a href="addCollege.php" style="text-decoration: none; color: white;">Add College</a></li>';
 
 		}
 		
@@ -29,6 +29,8 @@
 				echo '<a href="login11.php"><button type="button">Login</button></a>';
 				
 		}
+		else
+				echo '<a href="login11.php"><button type="button">Login</button></a>';
 	?>
 	
 	<button type="submit" style="background-color: green;"><span class="fa fa-search"></span></button>
