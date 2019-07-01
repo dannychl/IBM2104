@@ -1,11 +1,16 @@
 <?php
   session_start();
+  $_SESSION["self"] = $_SERVER["PHP_SELF"];
+
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "testing";
 
   $id = $_GET['id'];
+  $_SESSION["self"] .= "?id=";
+  $_SESSION["self"] .= $id;
+  
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
