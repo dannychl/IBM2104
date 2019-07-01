@@ -25,7 +25,7 @@
 
 			echo '
 				<script>window.alert("Welcome back, '.$row["username"].'")
-				location.href="homepage.php"</script>';
+				location.href="'.$_SESSION["self"].'"</script>';
 		}
 		else
 		{
@@ -48,7 +48,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="lmage/pic1.jpg" alt="Member">
+					<img src="Image/pic1.jpg" alt="Member">
 				</div>
 
 				<form class="login100-form validate-form" action="login11.php" method="get">

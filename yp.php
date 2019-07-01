@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$_SESSION["self"] = $_SERVER["PHP_SELF"];
 	if(isset($_GET['searched']) && !empty($_GET['search_content']))
 	{
 		//unset the session

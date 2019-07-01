@@ -2,6 +2,7 @@
 	session_start();
 	if(isset($_POST['added_college']))
 	{
+		$_SESSION["self"] = $_SERVER["PHP_SELF"];
 		$target_dir = "Image/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$alt_img = $_POST['alt_img'];

@@ -4,5 +4,5 @@
 	$_SESSION["admin_loged_in"] = false;
 	echo '
 		<script>window.alert("Logged Out")
-		location.href="homepage.php"</script>';
+		location.href="'.$_SESSION["self"].'"</script>';
 ?>

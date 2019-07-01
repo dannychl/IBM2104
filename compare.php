@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$_SESSION["self"] = $_SERVER["PHP_SELF"];
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
