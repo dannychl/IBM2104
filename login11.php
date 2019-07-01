@@ -2,16 +2,19 @@
 	session_start();
 	if(isset($_GET['submitted'])){
 
-		$email = $_GET['email'];
-		$pass = $_GET['pass'];
+		
 
 		$conn = new mysqli("localhost", "root", "", "testing");
 		if($conn->connect_error)
 		{
 			die("Cannot connect to database");
 		}
+		$email = $_GET['email'];
+		$pass = $_GET['pass'];
+
+		$pass = $conn->real_escape_string($_GET['pass']);
 		
-		$sql = "SELECT admin FROM USER WHERE email = '$email' AND pass = '$pass'";
+		$sql = "SELECT admin, username FROM USER WHERE email = '$email' AND pass = '$pass'";
 		$result = $conn->query($sql);
 
 		if($result->num_rows > 0)
@@ -20,7 +23,9 @@
 			$row = $result->fetch_assoc();
 			$_SESSION["admin_loged_in"] = $row['admin'];
 
-			header("Location: homepage.php");
+			echo '
+				<script>window.alert("Welcome back, '.$row["username"].'")
+				location.href="homepage.php"</script>';
 		}
 		else
 		{
@@ -60,7 +65,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="text" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>

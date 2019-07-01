@@ -8,13 +8,13 @@
 	<li><a href="yp.php" style="text-decoration: none; color: white;">College</a></li>
 
 	<li><a href="compare.php" style="text-decoration: none; color: white;">Comparision</a></li>
-	<li><a href="events.html" style="text-decoration: none; color: white;">About Us</a></li>
-	<li><a href="project.html" style="text-decoration: none; color: white;">Rate/Review</a></li>
 	<?php 
 		if(isset($_SESSION["admin_loged_in"]))
 		{
 			if($_SESSION["admin_loged_in"])
-			echo '<li><a href="addCollege.php" style="text-decoration: none; color: white;">Add College</a></li>';
+			{
+				echo '<li><a href="addCollege.php" style="text-decoration: none; color: white;">Add College</a></li>';
+			}
 
 		}
 		
@@ -24,7 +24,7 @@
 		if(isset($_SESSION["loged_in"]))
 		{
 			if($_SESSION["loged_in"])
-				echo '<button type="button">Log out</button>';
+				echo '<a href="logout.php"><button type="button">Log out</button></a>';
 			else
 				echo '<a href="login11.php"><button type="button">Login</button></a>';
 				

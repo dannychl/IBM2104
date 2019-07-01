@@ -1,23 +1,81 @@
 <?php
-	if(isset($_GET['added_college']))
+	session_start();
+	if(isset($_POST['added_college']))
 	{
-		$logo_source = $_GET['logo_source'];
-		$alt_img = $_GET['alt_img'];
-		$college_name = $_GET['college_name'];
-		$location = $_GET['location'];
+		$target_dir = "Image/";
+		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		$alt_img = $_POST['alt_img'];
+		$college_name = $_POST['college_name'];
+		$location = $_POST['location'];
 
-		$conn = new mysqli("localhost", "root", "", "testing");
+		$uploadOk = true;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-		if ($conn->connect_error) 
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["added_college"])) 
 		{
-			die("Connection failed: ".$conn->connect_error);
+		    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+		    if($check !== false) 
+		    {
+		        //echo "File is an image - " . $check["mime"] . ".";
+		        $uploadOk = true;
+		    } 
+		    else 
+		    {
+		       // echo "File is not an image.";
+		        $uploadOk = false;
+		    }
 		}
-
-		$sql = "INSERT INTO college (name, location, picsource, altimg) VALUES ('$college_name', '$location', '$logo_source', '$alt_img')";
-		
-		if($conn->query($sql))
+		// Check if file already exists
+		/*if (file_exists($target_file)) 
 		{
-			echo '<script>window.alert("Successfuly Added")</script>';
+		    echo "Sorry, file already exists.";
+		    $uploadOk = false;
+		}*/
+		// Check file size
+		if ($_FILES["fileToUpload"]["size"] > 500000) 
+		{
+		    echo "Sorry, your file is too large.";
+		    $uploadOk = false;
+		}
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) 
+		{
+		    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		    $uploadOk = false;
+		}
+		// Check if $uploadOk is set to false by an error
+		if ($uploadOk == false) 
+		{
+		    echo "Sorry, your file was not uploaded.";
+		} 
+		// if everything is ok, try to upload file
+		else 
+		{
+		    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
+		    {
+		        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		        $conn = new mysqli("localhost", "root", "", "testing");
+
+				if ($conn->connect_error) 
+				{
+					die("Connection failed: ".$conn->connect_error);
+				}
+
+				$sql = "INSERT INTO college (name, location, picsource, altimg) VALUES ('$college_name', '$location', '$target_file', '$alt_img')";
+				
+				if($conn->query($sql))
+				{
+					echo '
+					<script>window.alert("Successfuly Added")
+					location.href="addCollege.php"</script>';
+				}
+			} 
+		    else 
+		    {
+		        echo "Sorry, there was an error uploading your file.";
+		    }
 		}
 	}
 	else
@@ -43,8 +101,11 @@
 			</div>
 
 			<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
-				<form action="addCollege.php" method="get">
-					<div class="spacing">Logo Source: <input type="text" name="logo_source" required><br></div>
+				<form action="addCollege.php" method="post" enctype="multipart/form-data">
+				    <div class="spacing">Select image to upload:
+				    <input type="file" name="fileToUpload" id="fileToUpload"><br></div>
+				
+					<!--information-->
 					<div class="spacing">Alternate Image Name: <input type="text" name="alt_img" required><br></div>
 					<div class="spacing">College Name: <input type="text" name="college_name" required><br></div>
 					<div class="spacing">Location: <input type="text" name="location" required><br></div>
