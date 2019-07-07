@@ -76,7 +76,7 @@
       }
     }
 
-    $sql = "SELECT * FROM college_details WHERE college_id = '$id'";
+    $sql = "SELECT * FROM college_detail WHERE college_id = '$id'";
     $result = $conn->query($sql);
 
   	if ($result->num_rows > 0) {
@@ -105,7 +105,7 @@
           <div class="tab-content">
             <div id="home" class="container tab-pane active">
               <div class="container border shadow-sm">
-                <h3 class="ml-2">Why INTI?</h3>
+                <h3 class="ml-2">Why Us?</h3>
                 <div class="container ml-5 mr-5" style="width: auto">
                   <p>'.$row["description"].'</p>
                 </div><br>
