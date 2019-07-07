@@ -2,13 +2,12 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "testing";
+  $dbname = "project";
 
-  $id = $_GET['id'];
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
-  $sql = "SELECT * FROM college_details WHERE college_id = '$id'";
+  $sql = "SELECT * FROM review";
   $result = $conn->query($sql);
 
   echo'<!DOCTYPE html>
@@ -62,45 +61,29 @@
 
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      echo'<div class="container border shadow-sm">
-                <h3 class="ml-2">Why INTI?</h3>
-                <div class="container ml-5 mr-5" style="width: auto">
-                  <p>'.$row["description"].'</p>
-                </div><br>
+      echo'<div class="media border p-3">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+              <div class="media-body">
+               <h4>'.$row["review_id"].' <small><i>'.$row["time"].'</i></small></h4>
+               <p>'.$row["comment"].'</p>
+              </div>
+           </div>
+           <div class="media border p-3">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+              <div class="media-body">
+               <h4>'.$row["review_id"].' <small><i>'.$row["time"].'</i></small></h4>
+               <p>'.$row["comment"].'</p>
+              </div>
+           </div>
+           <div class="media border p-3">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+              <div class="media-body">
+               <h4>'.$row["review_id"].' <small><i>'.$row["time"].'</i></small></h4>
+               <p>'.$row["comment"].'</p>
+              </div>
+           </div><br><br>';
 
-                <h3 class="ml-2">Overview</h3> 
-                <div class="container">         
-                  <table class="table table-bordered ml-5" style="width: 600px">
-                  <tr>
-                    <td><b>Institute Type</b></td>
-                    <td>'.$row["type"].'</td>
-                  </tr>
-                  <tr>
-                    <td><b>Intake</b></td>
-                    <td>'.$row["intake"].'</td>
-                  </tr>
-                  <tr>
-                    <td><b>Campus Location</b></td>
-                    <td>'.$row["location"].'</td>
-                  </tr>
-                  <tr>
-                    <td><b>No. of Courses Available</b></td>
-                    <td>'.$row["no_of_course"].'</td>
-                  </tr>
-                  </table>
-                </div><br>
-              </div><br>
-
-              <div class="container border shadow-sm">
-                <h3 class="ml-2">Location</h3>
-                <iframe frameborder="0" align="center" style="margin-bottom: 20px; width: 100%; height: 500px"
-                  src="'.$row["map"].'"></iframe>
-              </div><br>
-               
-               
-               
-              
-              </body>';
+        <input type="text" name="comment">
     }
   }
 

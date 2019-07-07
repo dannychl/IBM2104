@@ -79,7 +79,6 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 
   }
-}
          
           <div class="container">
             <!-- Nav tabs -->
