@@ -4,7 +4,7 @@
   $password = "";
   $dbname = "project";
 
-  $id = 1;
+  $id = $_GET['id'];
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
