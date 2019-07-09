@@ -81,7 +81,7 @@ include('header1.html');
 										$servername = "localhost";
 										$username = "root";
 										$password = "";
-										$dbname = "testing";
+										$dbname = "project";
 
 										//start connection with sql
 										$conn = new mysqli($servername, $username, $password, $dbname);
@@ -111,12 +111,12 @@ include('header1.html');
 											    	echo '
 											    	<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
 														<tbody>
-											    		<tr class="clickable-row" data-href="college.php?id='.$row["id"].'" style="height: 150px;">
-														  	<td style="width: 390px"><img src="'. $row["picsource"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
+											    		<tr class="clickable-row" data-href="newINTI.php?id='.$row["id"].'" style="height: 150px;">
+														  	<td style="width: 390px"><img src="'. $row["logo_source"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
 														  	<td><br>' . $row["name"] . '
 														  	<br><span style="color: #B7B7B7">Rating: ' . $rating . '</span><br><span class="material-icons" style="color: #B7B7B7; font-size: 20px;">place</span><span style="color: #B7B7B7">' . $row["location"] . '</span>
 														  	<br>
-														  	<a href="college.php?id='.$row["id"].'" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
+														  	<a href="newINTI.php?id='.$row["id"].'" class="btn btn-success" style="margin-top: 10px; float: right;" title="See More">See More --></a></td>
 													  	</tr></tbody></table>';
 											    } 
 											} 

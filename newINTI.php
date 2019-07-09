@@ -239,7 +239,7 @@
 
   
 
-  $sql = "SELECT * FROM review";
+  $sql = "SELECT * FROM review WHERE college_id = '$id' ";
   $result = $conn->query($sql);
   
   echo '<div id="menu2" class="container tab-pane fade mb-5">';
@@ -257,9 +257,9 @@
   echo '<div class="media border p-3">
           <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
           <div class="media-body">
-            <form action="" method="post">
+            <form action="addReview.php" method="post">
               <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
-              <button type="button" class="float-sm-right btn btn-success">Submit</button>
+              <button type="submit" class="float-sm-right btn btn-success">Submit</button>
             </form>
           </div>
         </div>';
