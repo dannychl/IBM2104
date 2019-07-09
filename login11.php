@@ -4,7 +4,7 @@
 
 		
 
-		$conn = new mysqli("localhost", "root", "", "testing");
+		$conn = new mysqli("localhost", "root", "", "project");
 		if($conn->connect_error)
 		{
 			die("Cannot connect to database");
@@ -23,14 +23,23 @@
 			$row = $result->fetch_assoc();
 			$_SESSION["admin_loged_in"] = $row['admin'];
 
-			echo '
+			if($_SESSION["admin_loged_in"])
+			{
+				echo '
+				<script>window.alert("Welcome back, '.$row["username"].' (admin)")
+				location.href="'.$_SESSION["self"].'"</script>';
+			}
+			else
+			{
+				echo '
 				<script>window.alert("Welcome back, '.$row["username"].'")
 				location.href="'.$_SESSION["self"].'"</script>';
+			}
+			
 		}
 		else
 		{
-			//echo '<script>window.alert("hihi")</script>';
-			//header("Location: login11.php");
+			header("Location: login_failed.php");
 		}
 		
 } else {
