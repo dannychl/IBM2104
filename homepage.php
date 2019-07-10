@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["self"] = $_SERVER["PHP_SELF"];
 	include 'header1.html';
 	include 'headercss.html';
 	echo '

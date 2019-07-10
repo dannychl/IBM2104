@@ -19,18 +19,24 @@
 		}
 		
 	?>
-	<a href="signUp1.php"><button type="button">Register</button></a>
+	
 	<?php
 		if(isset($_SESSION["loged_in"]))
 		{
 			if($_SESSION["loged_in"])
 				echo '<a href="logout.php"><button type="button">Log out</button></a>';
 			else
+			{
+				echo '<a href="signUp1.php"><button type="button">Register</button></a>';
 				echo '<a href="login11.php"><button type="button">Login</button></a>';
+			}
 				
 		}
 		else
-				echo '<a href="login11.php"><button type="button">Login</button></a>';
+		{
+			echo '<a href="signUp1.php"><button type="button">Register</button></a>';
+			echo '<a href="login11.php"><button type="button">Login</button></a>';
+		}
 	?>
 	
 	<button type="submit" style="background-color: green;"><span class="fa fa-search"></span></button>

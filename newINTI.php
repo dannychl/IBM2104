@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -21,6 +22,7 @@
             <!DOCTYPE html>
             <html lang="en">
             <head>
+              <link rel="shortcut icon" type="image/jpg" href="icon.jpg"/>
               <title>'.$row["name"].'</title>
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,8 +30,12 @@
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-              <style>
-              .breadcrumb{
+              <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+
+              include('headercss.html');
+              echo
+              '.breadcrumb{
                 background-color: transparent;
                 margin: 0;
                 padding: 0;
@@ -65,7 +71,11 @@
               </style>
             </head>
 
-            <body>                   
+            <body>';
+
+            include('header2.php');
+
+            echo '                  
               <div class="container-fluid">
                 <img src="'.$row["bannersource"].'" style="width: 100%">
 
