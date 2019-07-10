@@ -248,7 +248,7 @@
         echo '<div class="media border p-3">
                 <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
-                  <h4>'.$row["review_id"].' <small><i>'.$row["time"].'</i></small></h4>
+                  <h5>#'.$row["review_id"].'<small><i> added on '.$row["time"].'</i></small></h5 >
                   <p>'.$row["comment"].'</p>
                 </div>
               </div>';
@@ -258,6 +258,7 @@
           <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
           <div class="media-body">
             <form action="addReview.php" method="post">
+              <input type="hidden" name="id" value="'.$id.'">
               <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
               <button type="submit" class="float-sm-right btn btn-success">Submit</button>
             </form>
