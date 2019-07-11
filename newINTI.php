@@ -77,7 +77,7 @@
 
             echo '                  
               <div class="container-fluid">
-                <img src="'.$row["bannersource"].'" style="width: 100%">
+                <img src="'.$row["bannersource"].'" style="height: 400px;width: 100%">
 
                 <div class="media" style="padding-left: 200px;">
                   <img src="'.$row["picsource"].'" class="align-self-bottom rounded-0 border shadow-sm" style="margin-top: -50px; width: 150px;">
