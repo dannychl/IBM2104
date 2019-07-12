@@ -177,7 +177,7 @@
               </div><br>
 
               <div class="container border shadow-sm">
-                <h3 class="ml-2">Location</h3>
+                <h3 id="address" class="ml-2">Location</h3>
                 <iframe frameborder="0" align="center" style="margin-bottom: 20px; width: 100%; height: 500px"
                   src="'.$row["map"].'"></iframe>
               </div><br>

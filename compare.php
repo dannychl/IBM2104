@@ -4,7 +4,7 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "testing";
+	$dbname = "project";
 
 	//start connection with sql
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -105,28 +105,23 @@
 				echo "</tr>";
 
 
-				$sql = "SELECT college.id, college.picsource, college.rating, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id";
+				$sql = "SELECT college.id, college.picsource, college.rating, college_detail.type, college_detail.intake, college_detail.location FROM college_detail INNER JOIN college ON college_detail.college_id = college.id";
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc())
 				{
 					echo '	<tr>
-								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 250px; height: 100px; margin: 20px 20px 20px 20px;"></td>
+								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 100px; height: 100px; margin: 20px 20px 20px 20px;"></td>
 								<td class="setCenter">'.$row["rating"].'</td>
 								<td class="setCenter">'.$row["type"].'</td>
 								<td class="setCenter">'.$row["intake"].'</td>
-								<td class="setCenter">'.$row["location"].'</td>
-								<td style="margin: 20px; font-size: 20px; padding-left: 30px">';
-					$sql1 = "SELECT course.course_name FROM course INNER JOIN college ON course.college_id = college.id";
+								<td class="setCenter"><a href="newINTI.php?id='.$row["id"].'#address">'.$row["location"].'</a></td>
+								<td class="setCenter">';
+					$sql1 = "SELECT COUNT(DISTINCT course_id) FROM course INNER JOIN college ON course.college_id = ".$row["id"]."";
 					$result1 = $conn->query($sql1);
-					$i = 0;
+
 					while($row1 = $result1->fetch_assoc())
 					{
-						echo ''.$row1["course_name"].'<br>';
-						$i++;
-						if($i==2)
-						{
-							echo '<a href="newINTI.php?id='.$row["id"].'">More...</a>';
-						}
+						echo '<a href="newINTI.php?id='.$row["id"].'">'.$row1["COUNT(DISTINCT course_id)"].'</a>';
 					}
 								
 					echo '</td></tr>';
