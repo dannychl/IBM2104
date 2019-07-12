@@ -13,7 +13,9 @@
 		{
 			if($_SESSION["admin_loged_in"])
 			{
-				echo '<li><a href="addCollege.php" style="text-decoration: none; color: white;">Add College</a></li>';
+				echo '
+					<li><a href="addCollege.php" style="text-decoration: none; color: white;">Add College</a></li>
+					<li><a href="userMaintenance.php" style="text-decoration: none; color: white;">User Maintenance</a></li>';
 			}
 
 		}
