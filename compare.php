@@ -125,7 +125,7 @@
 						$i++;
 						if($i==2)
 						{
-							echo '<a href="college.php?id='.$row["id"].'">More...</a>';
+							echo '<a href="newINTI.php?id='.$row["id"].'">More...</a>';
 						}
 					}
 								
