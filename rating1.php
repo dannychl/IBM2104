@@ -1,30 +1,48 @@
 <?php	
-	$conn = new mysqli('localhost', 'root', '','testing');
-	if(isset($_POST['save'])){
+session_start();
 
+	$conn = new mysqli('localhost', 'root', '','project');
+	if(isset($_POST['save']))
+	{
 		$uID = $conn->real_escape_string($_POST['uID']);
 		$ratedIndex = $conn->real_escape_string($_POST['ratedIndex']);
 		$ratedIndex++;
 
-		$result = $conn->query("SELECT id FROM stars WHERE ID = $uID");
-		if ($result->num_rows == 0){
-			echo "<h1>HIHI</h1>";
-			$conn->query("INSERT INTO stars(rateIndex, id) VALUES ('$ratedIndex', '$uID')");
-			$sql =$conn->query(" SELECT id FROM stars ORDER BY id DESC LIMIT 1");
-			$uData = $sql->fetch_assoc();
-			$uID = $uData['id'];
-		}else
-		{	
-			if($conn->query("UPDATE stars SET rateIndex = '$ratedIndex' WHERE id = '$uID'")){
-				echo "success";
+
+		$checkCollege = $_GET['id'];
+		$checkUser = $_GET['cid'];
+
+		$result = $conn->query("SELECT * FROM stars WHERE collegeID = $checkCollege AND userID = $checkUser");
+			if ($result->num_rows == 0){
+				$conn->query("INSERT INTO stars(rateIndex, collegeID, userID) VALUES ('$ratedIndex', ' $checkCollege', '$checkUser')");
+				$sql =$conn->query(" SELECT collegeID FROM stars ORDER BY id DESC LIMIT 1");
+				$uData = $sql->fetch_assoc();
+				$uID = $uData['collegeID'];
 			}
 			else
-				echo "failed".$conn->error;
-		}
+			{	
+				if($conn->query("UPDATE stars SET rateIndex = '$ratedIndex' WHERE collegeID = $checkCollege AND userID = $checkUser")){
+					echo "success";
+				}
+				else
+					echo "failed".$conn->error;
+			}
 		
 		exit(json_encode(array('id' => $uID)));
-	}
+	}	
+
+	$sql = $conn->query("SELECT collegeID FROM stars WHERE collegeID = ".$_GET['id']."");
+	$numR = $sql->num_rows;
+
+	$sql = $conn -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$_GET['id']."");
+
+	$rData = $sql-> fetch_array();
+	$total = $rData['total'];
+
+	$avg = $total / $numR;
+	
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,27 +57,31 @@
 <style>
 .fa-star{
 	text-shadow: 3px 3px 10px grey;
-	font-size: 25px !important;
+	font-size: 25px;
 }
 
 </style>
 <body>
 	<h2> Rating System </h2>
-	<div align="center" style="background:#FFF; border-radius: 10px;margin-left:-5%; margin-top:-0.5%; width: 300px; padding:5px;">
+	<div align="center" style="background:rgba(207, 207, 207, 1); border-radius: 10px;margin-left:-1%; margin-top:-0.5%; width: 180px; padding:5px;">
 		<i class = "fa fa-star fa-2x" data-index="0"></i>
 		<i class = "fa fa-star fa-2x" data-index="1"></i>
 		<i class = "fa fa-star fa-2x" data-index="2"></i>
 		<i class = "fa fa-star fa-2x" data-index="3"></i>
 		<i class = "fa fa-star fa-2x" data-index="4"></i>
+		<br><br>
+		<?php
+		echo "Average Rating: ";
+		echo (round($avg,2));
+		echo '<script>localStorage.setItem("uID", '.$_GET["id"].');</script>';
+		?>
 	</div>
-	
 	<script 
 		src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous">
 	</script>
 	<script>
 		var ratedIndex = -1;
-		var uID = 0;
-		
+		var uID =0;
 		$(document).ready(function(){
 			resetStarColors();
 			
@@ -71,6 +93,7 @@
 			$('.fa-star').on('click', function(){
 				ratedIndex = parseInt($(this).data('index'));
 				localStorage.setItem('ratedIndex', ratedIndex);
+				alert("haha" + uID);
 				saveToTheDB();
 			});
 			
@@ -89,11 +112,11 @@
 		});
 		function saveToTheDB(){
 			$.ajax({
-				url:"rating1.php",
+				url:"rating2.php?id="+uID+"&cid=1",
 				method: "POST",
 				dataType: 'json',
 				data: {
-					save: 1,
+					save: true,
 					uID: uID,
 					ratedIndex: ratedIndex
 				}, success :function(r){
