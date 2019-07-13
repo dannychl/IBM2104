@@ -26,6 +26,7 @@
     }
     else {
       echo"<script>alert('Error');</script>";
+      echo mysqli_error($conn);
     }
 
     $conn->close();

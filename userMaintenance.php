@@ -89,5 +89,7 @@
 
 		echo '
 				</form></div>';
+
+		$conn->close();
 	}
 ?>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2019 at 05:12 AM
+-- Generation Time: Jul 13, 2019 at 10:49 AM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `project`
 --
-CREATE DATABASE IF NOT EXISTS `project` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `project`;
 
 -- --------------------------------------------------------
 
@@ -127,7 +125,7 @@ INSERT INTO `course` (`course_id`, `name`, `mode`, `level`, `duration`, `fee`, `
 --
 
 CREATE TABLE `review` (
-  `review_id` int(11) NOT NULL,
+  `review_id` int(11) UNSIGNED NOT NULL,
   `time` date DEFAULT NULL,
   `comment` text,
   `college_id` int(3) UNSIGNED DEFAULT NULL
@@ -138,7 +136,35 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`review_id`, `time`, `comment`, `college_id`) VALUES
-(1, '2019-07-01', 'This is a line of comment.', 1);
+(1, '2019-07-01', 'This is a line of comment.', 1),
+(2, '2019-07-13', 'fuck u tm gagaga hahahaha', 1),
+(3, '2019-07-13', 'fuck you TM, mcd,pizza, kfc,blah lbha lbhalbhabajlbjalbhaljldasjdfoiajsfoidasnfndaskfjoasidfmksaldgmlksdfasjfoipwemklfasndgkvlasfj', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(3) UNSIGNED NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `firstname` varchar(30) DEFAULT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  `admin` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `firstname`, `lastname`, `email`, `pass`, `admin`) VALUES
+(1, 'Superman', 'LEONG', 'YONG PENG', 'yongpeng0304@gmail.com', '01234', 1),
+(6, 'haha', 'LEONG', 'PENG', 'yongpeng0304@gmail.com', '12345', 0),
+(7, 'yxing', 'leong', 'yong xing', 'cincai@gmail.com', '12345', 0),
+(8, 'cincai', 'cincai', 'cincai', 'cincai', 'cincai', 0);
 
 --
 -- Indexes for dumped tables
@@ -172,6 +198,12 @@ ALTER TABLE `review`
   ADD KEY `college_id` (`college_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -192,6 +224,18 @@ ALTER TABLE `college_detail`
 --
 ALTER TABLE `course`
   MODIFY `course_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `review_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
