@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -21,12 +22,11 @@
       echo"
       <script>
       alert('Added');
-      window.location.href='newINTI.php?id=$id';
+      location.href='newINTI.php?id=$id';
       </script>";
     }
     else {
       echo"<script>alert('Error');</script>";
-      echo mysqli_error($conn);
     }
 
     $conn->close();
