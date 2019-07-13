@@ -8,25 +8,23 @@
 		die("Cannot connect to the database". $conn->connect_error);
 	}
 
-
-
-	if(isset($_GET['promote']))
+	if(isset($_POST['promote']))
 	{
-		$sql = "UPDATE user SET admin = true WHERE id =".$_GET['promote'];
+		$sql = "UPDATE user SET admin = true WHERE id =".$_POST['promote'];
 		$conn->query($sql);
 
-		header("Location: userMaintenance.php");
+		header("Location: userMaintenance.php#".$_POST['promote']);
 	}
-	else if(isset($_GET['demote']))
+	else if(isset($_POST['demote']))
 	{
-		$sql = "UPDATE user SET admin = false WHERE id =".$_GET['demote'];
+		$sql = "UPDATE user SET admin = false WHERE id =".$_POST['demote'];
 		$conn->query($sql);
 		
-		header("Location: userMaintenance.php");
+		header("Location: userMaintenance.php#".$_POST['demote']);
 	}
-	else if((isset($_GET['delete'])))
+	else if((isset($_POST['delete'])))
 	{
-		$sql = "DELETE FROM user WHERE id =".$_GET['delete'];
+		$sql = "DELETE FROM user WHERE id =".$_POST['delete'];
 		$conn->query($sql);
 		
 		header("Location: userMaintenance.php");
@@ -55,7 +53,7 @@
 					<div class="container" style="margin: 100px 0px 0px 200px">
 						<div class="row">
 							<div class="col-md-8" style="width: 60%; right:80px;">
-								<form>';
+								<form action="userMaintenance.php" method="post">';
 
 		if($result->num_rows>0)
 		{
@@ -71,7 +69,7 @@
 					echo '
 				    	<table class="table" style="margin: 50px 0px 0px 350px; border: 2px solid black">
 							<tbody>
-				    		<tr style="height: 150px;">
+				    		<tr style="height: 150px;" id="'.$row["id"].'">
 							  	<td style="width: 500px; padding: 20px 50px 35px 50px">
 							  		<br>Username: ' . $row["username"] . '
 							  		<br><br>Name: '.$row["firstname"].' '.$row["lastname"].'<br><br>
