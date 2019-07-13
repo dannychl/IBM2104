@@ -14,7 +14,7 @@
 
 		$pass = $conn->real_escape_string($_GET['pass']);
 		
-		$sql = "SELECT admin, username FROM USER WHERE email = '$email' AND pass = '$pass'";
+		$sql = "SELECT id, admin, username FROM USER WHERE email = '$email' AND pass = '$pass'";
 		$result = $conn->query($sql);
 
 		if($result->num_rows > 0)
@@ -22,6 +22,7 @@
 			$_SESSION["loged_in"] = true;
 			$row = $result->fetch_assoc();
 			$_SESSION["admin_loged_in"] = $row['admin'];
+			$_SESSION["user_id"] = $row["id"];
 
 			if($_SESSION["admin_loged_in"])
 			{
