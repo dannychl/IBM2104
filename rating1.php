@@ -73,7 +73,7 @@ session_start();
 		<?php
 		echo "Average Rating: ";
 		echo (round($avg,2));
-		echo '<script>localStorage.setItem("uID", '.$_GET["id"].');</script>';
+		echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
 		?>
 	</div>
 	<script 
@@ -81,19 +81,19 @@ session_start();
 	</script>
 	<script>
 		var ratedIndex = -1;
-		var uID =0;
+		var cID =0;
 		$(document).ready(function(){
 			resetStarColors();
 			
 			if(localStorage.getItem('ratedIndex')!= null){
 				setStars(parseInt(localStorage.getItem('ratedIndex')));
-				uID = localStorage.getItem('uID');
+				cID = localStorage.getItem('cID');
 			}
 			
 			$('.fa-star').on('click', function(){
 				ratedIndex = parseInt($(this).data('index'));
 				localStorage.setItem('ratedIndex', ratedIndex);
-				alert("haha" + uID);
+				alert("haha" + cID);
 				saveToTheDB();
 			});
 			
@@ -112,7 +112,7 @@ session_start();
 		});
 		function saveToTheDB(){
 			$.ajax({
-				url:"rating2.php?id="+uID+"&cid=1",
+				url:"rating2.php?uid="+$_SESSION['user_id']+"&cid=" + cid,
 				method: "POST",
 				dataType: 'json',
 				data: {
