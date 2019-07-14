@@ -87,6 +87,10 @@
       }
     }
 
+  $result = $conn->query("SELECT COUNT(*) AS noOfCourse FROM course WHERE college_id='$id'");
+  $row = $result->fetch_assoc();
+  $noOfCourse = $row['noOfCourse'];
+
     $sql = "SELECT * FROM college_detail WHERE college_id = '$id'";
     $result = $conn->query($sql);
 
@@ -175,7 +179,7 @@
                   </tr>
                   <tr>
                     <td><b>No. of Courses Available</b></td>
-                    <td>'.$row["no_of_course"].'</td>
+                    <td>'.$noOfCourse.'</td>
                   </tr>
                   </table>
                 </div><br>

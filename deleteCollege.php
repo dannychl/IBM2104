@@ -12,13 +12,15 @@
   }
 
   $id = $_POST['id'];
+  echo"$id";
  
   $sql = "DELETE FROM college_detail WHERE college_id='$id'";
 
   if ($conn->query($sql) === TRUE) {
     $sql = "DELETE FROM college WHERE id='$id'";
     if ($conn->query($sql) === TRUE) {
-      echo"
+      
+      echo";
       <script>
       alert('Deleted');
       location.href='yp.php?';
