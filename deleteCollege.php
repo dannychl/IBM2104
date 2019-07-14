@@ -12,19 +12,25 @@
   }
 
   $id = $_POST['id'];
-  echo"$id";
  
   $sql = "DELETE FROM college_detail WHERE college_id='$id'";
-
   if ($conn->query($sql) === TRUE) {
-    $sql = "DELETE FROM college WHERE id='$id'";
+    $sql = "DELETE FROM course WHERE college_id='$id'";
     if ($conn->query($sql) === TRUE) {
-      
-      echo";
-      <script>
-      alert('Deleted');
-      location.href='yp.php?';
-      </script>";
+    	$sql = "DELETE FROM review WHERE college_id='$id'";
+ 		if ($conn->query($sql) === TRUE) {
+ 			$sql = "DELETE FROM stars WHERE collegeID='$id'";
+ 			if ($conn->query($sql) === TRUE) {
+ 				$sql = "DELETE FROM college WHERE id='$id'";
+ 				if ($conn->query($sql) === TRUE) {    
+			      echo";
+			      <script>
+			      alert('Deleted');
+			      location.href='yp.php?';
+			      </script>";
+			  	}
+			}
+		}
     }
   }
   else {
