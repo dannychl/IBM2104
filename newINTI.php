@@ -149,7 +149,12 @@
     $rData = $sql1-> fetch_array();
     $total = $rData['total'];
 
-    $avg = $total / $numR;                  
+    if($numR == 0){
+      $avg = 0;
+    }
+    else{
+      $avg = $total / $numR;
+    }                
 
           echo          '<td>'.(round($avg,2)).'</td>
                   </tr>
