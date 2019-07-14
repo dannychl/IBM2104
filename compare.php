@@ -105,13 +105,23 @@
 				echo "</tr>";
 
 
-				$sql = "SELECT college.id, college.picsource, college.rating, college_detail.type, college_detail.intake, college_detail.location FROM college_detail INNER JOIN college ON college_detail.college_id = college.id";
+				$sql = "SELECT college.id, college.picsource, college_detail.type, college_detail.intake, college_detail.location FROM college_detail INNER JOIN college ON college_detail.college_id = college.id";
 				$result = $conn->query($sql);
+
 				while($row = $result->fetch_assoc())
 				{
+					$sql1 = $conn->query("SELECT collegeID FROM stars WHERE collegeID = ".$row["id"]."");
+				    $numR = $sql1->num_rows;
+
+				    $sql1 = $conn -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$row["id"]."");
+
+				    $rData = $sql1-> fetch_array();
+				    $total = $rData['total'];
+
+				    $avg = $total / $numR;
 					echo '	<tr>
 								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 100px; height: 100px; margin: 20px 20px 20px 20px;"></td>
-								<td class="setCenter">'.$row["rating"].'</td>
+								<td class="setCenter">'.round($avg,2).'</td>
 								<td class="setCenter">'.$row["type"].'</td>
 								<td class="setCenter">'.$row["intake"].'</td>
 								<td class="setCenter"><a href="newINTI.php?cid='.$row["id"].'#address">'.$row["location"].'</a></td>
