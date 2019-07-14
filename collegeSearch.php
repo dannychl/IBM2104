@@ -110,8 +110,13 @@ echo '			h4.chgFontFamily{
 								    $rData = $sql1-> fetch_array();
 								    $total = $rData['total'];
 
-								    $avg = $total / $numR;      
-									
+								    if($numR == 0){
+								    	$avg = 0;     
+									}
+									else{
+										$avg = $total / $numR; 
+									}
+
 									echo '
 									<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
 										<tbody>
