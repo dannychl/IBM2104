@@ -1,42 +1,42 @@
 <?php	
 session_start();
 
-	$conn = new mysqli('localhost', 'root', '','project');
+	$conn1 = new mysqli('localhost', 'root', '','project');
 	if(isset($_POST['save']))
 	{
-		$uID = $conn->real_escape_string($_POST['uID']);
-		$ratedIndex = $conn->real_escape_string($_POST['ratedIndex']);
+		$uID = $conn1->real_escape_string($_POST['uID']);
+		$ratedIndex = $conn1->real_escape_string($_POST['ratedIndex']);
 		$ratedIndex++;
 
 
-		$checkCollege = $_GET['id'];
-		$checkUser = $_GET['cid'];
+		$checkCollege = $_GET['cid'];
+		$checkUser = $_SESSION['user_id'];
 
-		$result = $conn->query("SELECT * FROM stars WHERE collegeID = $checkCollege AND userID = $checkUser");
+		$result = $conn1->query("SELECT * FROM stars WHERE collegeID = $checkCollege AND userID = $checkUser");
 			if ($result->num_rows == 0){
-				$conn->query("INSERT INTO stars(rateIndex, collegeID, userID) VALUES ('$ratedIndex', ' $checkCollege', '$checkUser')");
-				$sql =$conn->query(" SELECT collegeID FROM stars ORDER BY id DESC LIMIT 1");
-				$uData = $sql->fetch_assoc();
+				$conn1->query("INSERT INTO stars(rateIndex, collegeID, userID) VALUES ('$ratedIndex', ' $checkCollege', '$checkUser')");
+				$sql1 =$conn1->query(" SELECT collegeID FROM stars ORDER BY id DESC LIMIT 1");
+				$uData = $sql1->fetch_assoc();
 				$uID = $uData['collegeID'];
 			}
 			else
 			{	
-				if($conn->query("UPDATE stars SET rateIndex = '$ratedIndex' WHERE collegeID = $checkCollege AND userID = $checkUser")){
+				if($conn1->query("UPDATE stars SET rateIndex = '$ratedIndex' WHERE collegeID = $checkCollege AND userID = $checkUser")){
 					echo "success";
 				}
 				else
-					echo "failed".$conn->error;
+					echo "failed".$conn1->error;
 			}
 		
-		exit(json_encode(array('id' => $uID)));
+		//exit(json_encode(array('id' => $uID)));
 	}	
 
-	$sql = $conn->query("SELECT collegeID FROM stars WHERE collegeID = ".$_GET['id']."");
-	$numR = $sql->num_rows;
+	$sql1 = $conn1->query("SELECT collegeID FROM stars WHERE collegeID = ".$_GET['cid']."");
+	$numR = $sql1->num_rows;
 
-	$sql = $conn -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$_GET['id']."");
+	$sql1 = $conn1 -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$_GET['cid']."");
 
-	$rData = $sql-> fetch_array();
+	$rData = $sql1-> fetch_array();
 	$total = $rData['total'];
 
 	$avg = $total / $numR;
@@ -73,7 +73,9 @@ session_start();
 		<?php
 		echo "Average Rating: ";
 		echo (round($avg,2));
+		echo "<br>".$_SESSION['user_id'];
 		echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
+		echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
 		?>
 	</div>
 	<script 
@@ -82,18 +84,20 @@ session_start();
 	<script>
 		var ratedIndex = -1;
 		var cID =0;
+		var uID =0; 
 		$(document).ready(function(){
 			resetStarColors();
 			
 			if(localStorage.getItem('ratedIndex')!= null){
 				setStars(parseInt(localStorage.getItem('ratedIndex')));
 				cID = localStorage.getItem('cID');
+				uID = localStorage.getItem('uID');
 			}
 			
 			$('.fa-star').on('click', function(){
 				ratedIndex = parseInt($(this).data('index'));
 				localStorage.setItem('ratedIndex', ratedIndex);
-				alert("haha" + cID);
+				alert("user id: " + uID + "\ncollege id: " + cID);
 				saveToTheDB();
 			});
 			
@@ -112,7 +116,7 @@ session_start();
 		});
 		function saveToTheDB(){
 			$.ajax({
-				url:"rating2.php?uid="+$_SESSION['user_id']+"&cid=" + cid,
+				url:"rating1.php?uid="+uID+"&cid=" + cID,
 				method: "POST",
 				dataType: 'json',
 				data: {

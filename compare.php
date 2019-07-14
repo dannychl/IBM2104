@@ -114,14 +114,14 @@
 								<td class="setCenter">'.$row["rating"].'</td>
 								<td class="setCenter">'.$row["type"].'</td>
 								<td class="setCenter">'.$row["intake"].'</td>
-								<td class="setCenter"><a href="newINTI.php?id='.$row["id"].'#address">'.$row["location"].'</a></td>
+								<td class="setCenter"><a href="newINTI.php?cid='.$row["id"].'#address">'.$row["location"].'</a></td>
 								<td class="setCenter">';
 					$sql1 = "SELECT COUNT(DISTINCT course_id) FROM course INNER JOIN college ON course.college_id = ".$row["id"]."";
 					$result1 = $conn->query($sql1);
 
 					while($row1 = $result1->fetch_assoc())
 					{
-						echo '<a href="newINTI.php?id='.$row["id"].'">'.$row1["COUNT(DISTINCT course_id)"].'</a>';
+						echo '<a href="newINTI.php?cid='.$row["id"].'">'.$row1["COUNT(DISTINCT course_id)"].'</a>';
 					}
 								
 					echo '</td></tr>';

@@ -5,7 +5,7 @@
   $password = "";
   $dbname = "project";
 
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -31,7 +31,7 @@
               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
               <script src="https://kit.fontawesome.com/9d2c85f7cd.js"></script>
-              <script src="ratingJS.js"></script>
+              <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous"></script>
               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 
@@ -76,7 +76,6 @@
             <body>';
 
             include('header2.php');
-
             echo '                  
               <div class="container-fluid">
                 <img src="'.$row["bannersource"].'" style="height: 400px;width: 100%">
@@ -98,6 +97,8 @@
                 </div>
               </div><br>';
 
+        echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
+        echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
         echo '
           <div class="container" style="background:rgba(207, 207, 207, 1)">
           <i class = "fa fa-star fa-2x" data-index="0"></i>
@@ -106,6 +107,11 @@
           <i class = "fa fa-star fa-2x" data-index="3"></i>
           <i class = "fa fa-star fa-2x" data-index="4"></i>
           </div><br>';
+
+        echo "college id: ".$_GET['cid']."<br>";
+        echo "user id: ".$_SESSION['user_id']."<br>";
+
+          include ("ratingscript.js");
       	echo '
           <div class="container">
             <!-- Nav tabs -->
