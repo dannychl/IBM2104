@@ -96,22 +96,25 @@
                   </div>
                 </div>
               </div><br>';
+        if(isset($_SESSION["user_id"]))
 
-        echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
-        echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
-        echo '
-          <div class="container" style="background:rgba(207, 207, 207, 1)">
-          <i class = "fa fa-star fa-2x" data-index="0"></i>
-          <i class = "fa fa-star fa-2x" data-index="1"></i>
-          <i class = "fa fa-star fa-2x" data-index="2"></i>
-          <i class = "fa fa-star fa-2x" data-index="3"></i>
-          <i class = "fa fa-star fa-2x" data-index="4"></i>
-          </div><br>';
-
-        echo "college id: ".$_GET['cid']."<br>";
-        echo "user id: ".$_SESSION['user_id']."<br>";
-
-          include ("ratingscript.js");
+        {
+          echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
+          echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
+          echo '
+            <div class="container" style="background:rgba(207, 207, 207, 1)">
+            <i class = "fa fa-star fa-2x" data-index="0"></i>
+            <i class = "fa fa-star fa-2x" data-index="1"></i>
+            <i class = "fa fa-star fa-2x" data-index="2"></i>
+            <i class = "fa fa-star fa-2x" data-index="3"></i>
+            <i class = "fa fa-star fa-2x" data-index="4"></i>
+            </div><br>';
+  
+          echo "college id: ".$_GET['cid']."<br>";
+          echo "user id: ".$_SESSION['user_id']."<br>";
+  
+            include ("ratingscript.js");
+          }
       	echo '
           <div class="container">
             <!-- Nav tabs -->
