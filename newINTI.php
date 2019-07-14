@@ -149,7 +149,7 @@
     $rData = $sql1-> fetch_array();
     $total = $rData['total'];
 
-    $avg = $total / $numR;                
+    $avg = $total / $numR;                  
 
           echo          '<td>'.(round($avg,2)).'</td>
                   </tr>
@@ -306,7 +306,18 @@
         </div>';
   echo'</div>';
 
-
+if(isset($_SESSION["admin_loged_in"]))
+    {
+      if($_SESSION["admin_loged_in"])
+      {
+        echo '
+          <form action="deleteCollege.php" method="post">
+            <input type="hidden" name="id" value="'.$id.'">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        ';
+      }
+}
 
   echo'</div></body>';
 }
