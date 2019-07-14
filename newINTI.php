@@ -140,6 +140,20 @@
                 <div class="container">         
                   <table class="table table-bordered ml-5" style="width: 600px">
                   <tr>
+                    <td><b>Rating</b></td>';
+    $sql1 = $conn->query("SELECT collegeID FROM stars WHERE collegeID = ".$_GET['cid']."");
+    $numR = $sql1->num_rows;
+
+    $sql1 = $conn -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$_GET['cid']."");
+
+    $rData = $sql1-> fetch_array();
+    $total = $rData['total'];
+
+    $avg = $total / $numR;                
+
+          echo          '<td>'.(round($avg,2)).'</td>
+                  </tr>
+                  <tr>
                     <td><b>Institute Type</b></td>
                     <td>'.$row["type"].'</td>
                   </tr>
