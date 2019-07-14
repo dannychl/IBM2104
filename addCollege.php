@@ -3,8 +3,8 @@
 	if(isset($_POST['added_college']))
 	{
 		$_SESSION["self"] = $_SERVER["PHP_SELF"];
-		$target_dir = "Image/";
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		//$target_dir = "Image/";
+		$target_file = /*$target_dir . */basename($_FILES["fileToUpload"]["name"]);
 		$alt_img = $_POST['alt_img'];
 		$college_name = $_POST['college_name'];
 		$location = $_POST['location'];
@@ -57,7 +57,7 @@
 		    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
 		    {
 		        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-		        $conn = new mysqli("localhost", "root", "", "testing");
+		        $conn = new mysqli("localhost", "root", "", "project");
 
 				if ($conn->connect_error) 
 				{
