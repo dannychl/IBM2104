@@ -292,7 +292,12 @@
                 </div>
               </div>';
     }
-  echo'</div>';
+  echo'
+    <form action="addCourse.php" method="post">
+      <input type="hidden" name="id" value="'.$id.'">
+      <button type="submit" class="btn btn-primary" style="margin-left: 200px; margin-bottom: 100px">Add Course</button>
+    </form>
+  </div>';
 
   
 
@@ -333,7 +338,7 @@ if(isset($_SESSION["admin_loged_in"]))
         echo '
           <form action="deleteCollege.php" method="post">
             <input type="hidden" name="id" value="'.$id.'">
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger" style="margin-left: 200px; margin-bottom: 100px">Delete</button>
           </form>
         ';
       }

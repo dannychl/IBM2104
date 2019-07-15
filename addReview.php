@@ -26,7 +26,10 @@
       </script>";
     }
     else {
-      echo"<script>alert('Error');</script>";
+      echo"<script>
+      alert('Error');
+      location.href='newINTI.php?id=$id';
+      </script>";
     }
 
     $conn->close();
