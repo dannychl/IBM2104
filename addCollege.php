@@ -1,5 +1,13 @@
 <?php
 	session_start();
+	function validate($data) 
+	{
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+
 	if(isset($_POST['added_college']))
 	{
 		$_SESSION["self"] = $_SERVER["PHP_SELF"];
@@ -7,13 +15,13 @@
 		$target_file1 = /*$target_dir . */basename($_FILES["fileToUpload1"]["name"]);
 		$target_file2 = /*$target_dir . */basename($_FILES["fileToUpload2"]["name"]);
 		$target_file3 = /*$target_dir . */basename($_FILES["fileToUpload3"]["name"]);
-		$alt_img = $_POST['alt_img'];
-		$college_name = $_POST['college_name'];
-		$location = $_POST['location'];
-		$type = $_POST['type'];
-		$intake = $_POST['intake'];
-		$maplink = $_POST['maplink']."&output=embed";
-		$description = $_POST['description'];
+		$alt_img = validate($_POST['alt_img']);
+		$college_name = validate($_POST['college_name']);
+		$location = validate($_POST['location']);
+		$type = validate($_POST['type']);
+		$intake = validate($_POST['intake']);
+		$maplink = validate($_POST['maplink']."&output=embed");
+		$description = validate($_POST['description']);
 
 		$uploadOk = false;
 		$imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
