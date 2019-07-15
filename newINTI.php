@@ -114,9 +114,6 @@
             <i class = "fa fa-star fa-2x" data-index="4"></i>
             </div><br>';
   
-          echo "college id: ".$_GET['cid']."<br>";
-          echo "user id: ".$_SESSION['user_id']."<br>";
-  
             include ("ratingscript.js");
           }
       	echo '
@@ -291,7 +288,7 @@
 
   
 
-  $sql = "SELECT * FROM review WHERE college_id = '$id' ";
+  $sql = "SELECT review.time, review.comment, user.username FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ";
   $result = $conn->query($sql);
   
   echo '<div id="menu2" class="container tab-pane fade mb-5">';
@@ -300,23 +297,26 @@
         echo '<div class="media border p-3">
                 <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
-                  <h5>#'.$row["review_id"].'<small><i> added on '.$row["time"].'</i></small></h5 >
+                  <h5>#'.$row["username"].'<small><i> added on '.$row["time"].'</i></small></h5 >
                   <p>'.$row["comment"].'</p>
                 </div>
               </div>';
       }
     }
+  if(isset($_SESSION["user_id"]))
+  { 
   echo '<div class="media border p-3">
-          <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-          <div class="media-body">
-            <form action="addReview.php" method="post">
-              <input type="hidden" name="id" value="'.$id.'">
-              <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
-              <button type="submit" class="float-sm-right btn btn-success">Submit</button>
-            </form>
-          </div>
-        </div>';
-  echo'</div>';
+           <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+           <div class="media-body">
+             <form action="addReview.php" method="post">
+               <input type="hidden" name="id" value="'.$id.'">
+               <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
+               <button type="submit" class="float-sm-right btn btn-success">Submit</button>
+             </form>
+           </div>
+         </div>';
+   echo'</div>';
+  }
 
 if(isset($_SESSION["admin_loged_in"]))
     {

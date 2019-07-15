@@ -14,18 +14,6 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	//$id_from_database = [];
-	/*while($row = $result->fetch_assoc())
-	{
-		$id_from_database[$row["id"]] = $row["name"];
-	}*/
-	
-
-	/*foreach ($id_from_database as $key => $value) {
-		echo "The name for ".$key." is ".$value."<br>";
-	}*/
-
-
 	include ("header1.html");
 	echo   '
 				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -118,7 +106,14 @@
 				    $rData = $sql1-> fetch_array();
 				    $total = $rData['total'];
 
-				    $avg = $total / $numR;
+				    if($total!=0)
+				    {
+				    	$avg = $total / $numR;
+				    }
+				    else
+				    {
+				    	$avg = 0;
+				    }
 					echo '	<tr>
 								<td class="setCenter"><img src="'.$row["picsource"].'" style="width: 100px; height: 100px; margin: 20px 20px 20px 20px;"></td>
 								<td class="setCenter">'.round($avg,2).'</td>
