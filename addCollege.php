@@ -12,7 +12,7 @@
 		$location = $_POST['location'];
 		$type = $_POST['type'];
 		$intake = $_POST['intake'];
-		$maplink = $_POST['maplink'];
+		$maplink = $_POST['maplink']."&output=embed";
 		$description = $_POST['description'];
 
 		$uploadOk = false;
