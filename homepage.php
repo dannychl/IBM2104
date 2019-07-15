@@ -67,34 +67,39 @@ function showSlides(n) {
 
 <!-- Another content -->
 <div class="container">
-<h2> Register here to begin your personalized research </h2> <p> Click for more information </p> <br>
+<h2> Register here to begin your personalized research </h2> 
+<a href="signUp1.php" class="signUpbtn"> Click for more information </a><br>
 </div>
 
 <div class= "frameColleges">
 <div class= "colleges">
 <div class = "zoomPic">
-<img src="intisubang.jpg" width="350px" height="240px">
+<a href="newINTI.php?id=1" style="text-decoration:none" color : "#000"> 
+<img src="intisubang.jpg" width="350px" height="240px"></a>
 <h3> Inti College Subang </h3>
 </div>
 </div>
 
 <div class= "colleges">
 <div class = "zoomPic">
-<img src="SUNWAY-banner.jpg" width="350px" height="240px">
+<a href="newINTI.php?id=4" style="text-decoration:none" color : "#000"> 
+<img src="SUNWAY-banner.jpg" width="350px" height="240px"></a>
 <h3> Sunway College </h3>
 </div>
 </div>
 
 <div class= "colleges">
 <div class = "zoomPic">
-<img src="SEGI-banner.jpg" width="350px" height="240px">
+<a href="newINTI.php?id=2" style="text-decoration:none" color : "#000"> 
+<img src="SEGI-banner.jpg" width="350px" height="240px"></a>
 <h3> SEGI College </h3>
 </div>
 </div>
 
 <div class= "colleges">
 	<div class = "zoomPic">
-<img src="TARUC-banner.jpg" width="350px" height="240px" style="margin-left:45%">
+	<a href="newINTI.php?id=3" style="text-decoration:none" color : "#000"> 
+<img src="TARUC-banner.jpg" width="350px" height="240px" style="margin-left:45%"></a>
 		<div class ="textedit" style="margin-left: 45%">
 		<h4> Tunku Abdul Rahman University College </h4>
 		</div>
@@ -103,7 +108,8 @@ function showSlides(n) {
 
 <div class= "colleges">
 	<div class = "zoomPic">
-		<img src="DISTED-banner.jpg" width="350px" height="240px" style="margin-left:75%">
+	<a href="newINTI.php?id=5" style="text-decoration:none" color : "#000"> 
+		<img src="DISTED-banner.jpg" width="350px" height="240px" style="margin-left:75%"></a>
 			<div class ="textedit" style="margin-left: 75%">
 				<h4> DISTED College </h4>
 			</div>
