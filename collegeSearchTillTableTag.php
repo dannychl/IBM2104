@@ -35,7 +35,13 @@ include('header1.html');
 					}
 
 					h1.chgFontFamily{
-						font-family: arial;
+						text-align:center;
+						font-size: 5.0em;	
+						font-family: aerial;
+						background-color:rgba(191, 191, 191, 1);
+						width: 89vw;
+						text-shadow: 2px 2px 4px;
+						margin-left: -130px;
 					}
 
 					.rating {
@@ -82,7 +88,7 @@ include('header1.html');
 						<h1 class="chgFontFamily" style="margin-top: 50px"><a href="yp.php">College</a></h1>
 					</div>
 
-					<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+					<div style="background-color: #f0f0f0; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 						<div>
 							<form action="yp.php" method="get">
