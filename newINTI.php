@@ -284,6 +284,14 @@
               </div>';
       }
     }
+    else
+    {
+      echo '<div class="media border p-3">
+                <div class="media-body">
+                  <h4>No course are allowed yet</h4>
+                </div>
+              </div>';
+    }
   echo'</div>';
 
   
