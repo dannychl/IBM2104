@@ -106,7 +106,7 @@
           echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
           echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
           echo '
-            <div class="container" style="background:rgba(207, 207, 207, 1)">
+            <div class="container" style="background:rgba(207, 207, 207, 1); width: 165px; margin-right: 1168px">
             <i class = "fa fa-star fa-2x" data-index="0"></i>
             <i class = "fa fa-star fa-2x" data-index="1"></i>
             <i class = "fa fa-star fa-2x" data-index="2"></i>
