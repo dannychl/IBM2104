@@ -70,28 +70,28 @@
 					<div class="spacing">Course Name: <input type="text" name="course_name" required style="margin-left: 83px"><br></div>
 
 					<div class="spacing">Mode: 
-						<select name="mode" style="margin-left: 168px">
+						<select name="mode" style="margin-left: 152px; width: 223px">
 							<option value="Full-Time">Full-Time</option>
 							<option value="Part-Time">Part-Time</option>
 						</select>
 					</div>
 
 					<div class="spacing">Level: 
-						<select name="level" style="margin-left: 168px">
+						<select name="level" style="margin-left: 159px; width: 223px">
 							<option value="Degree">Degree</option>
 							<option value="Diploma">Diploma</option>
 						</select>
 					</div>
 
 					<div class="spacing">Duration: 
-						<select name="duration" style="margin-left: 168px">
-							<option value=18>18</option>
-							<option value=24>24</option>
-							<option value=36>36</option>
+						<select name="duration" style="margin-left: 126px; width: 223px">
+							<option value=18>18 months</option>
+							<option value=24>24 months</option>
+							<option value=36>36 months</option>
 						</select>
 					</div>
 
-					<div class="spacing">Fee: <input type="text" name="fee" required style="margin-left: 83px"><br></div>
+					<div class="spacing">Fee: <input type="text" name="fee" required style="margin-left: 175px"><br></div>
 
 					<button type="submit" class="btn btn-success" style="margin-left: 200px; padding-left: 20px; padding-right: 20px">Add Course</button>
 
