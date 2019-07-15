@@ -11,18 +11,19 @@
   	die("Connection error". $conn->connect_error);
   }
   else{
-    $id = $_POST['id'];
+    $uid = $_SESSION['user_id'];
+    $cid = $_POST['id'];
     $comment = $_POST['comment'];
     $time = date("y-m-d");
 
-    $sql = "INSERT INTO review (time, comment, college_id)
-            VALUES ('$time', '$comment', '$id');";
+    $sql = "INSERT INTO review (time, comment, college_id, user_id)
+            VALUES ('$time', '$comment', '$cid', '$uid');";
 
     if ($conn->query($sql)) {
       echo"
       <script>
       alert('Added');
-      location.href='newINTI.php?id=$id';
+      location.href='newINTI.php?cid=$cid';
       </script>";
     }
     else {
