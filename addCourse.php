@@ -25,13 +25,13 @@
       			echo"
    		   		<script>
    		   		alert('Added');
-   		   		location.href='newINTI.php?id=$id';
+   		   		location.href='newINTI.php?cid=$id';
   		   		</script>";
   		  	 }
    			 else {
       			echo"<script>
       			alert('Error');
-      			location.href='yp.php';
+      			location.href='newINTI.php?cid=$id';
       			</script>";
     		 }
 		}
