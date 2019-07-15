@@ -24,6 +24,10 @@
 	}
 	else if((isset($_POST['delete'])))
 	{
+		$sql = "DELETE FROM stars WHERE userid =".$_POST['delete'];
+		$conn->query($sql);
+		$sql = "DELETE FROM review WHERE user_id =".$_POST['delete'];
+		$conn->query($sql);
 		$sql = "DELETE FROM user WHERE id =".$_POST['delete'];
 		$conn->query($sql);
 		

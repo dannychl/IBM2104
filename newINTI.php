@@ -5,7 +5,7 @@
   $password = "";
   $dbname = "project";
 
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -30,6 +30,8 @@
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+              <script src="https://kit.fontawesome.com/9d2c85f7cd.js"></script>
+              <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous"></script>
               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 
@@ -74,7 +76,6 @@
             <body>';
 
             include('header2.php');
-
             echo '                  
               <div class="container-fluid">
                 <img src="'.$row["bannersource"].'" style="height: 400px;width: 100%">
@@ -86,6 +87,10 @@
       }
     }
 
+  $result = $conn->query("SELECT COUNT(*) AS noOfCourse FROM course WHERE college_id='$id'");
+  $row = $result->fetch_assoc();
+  $noOfCourse = $row['noOfCourse'];
+
     $sql = "SELECT * FROM college_detail WHERE college_id = '$id'";
     $result = $conn->query($sql);
 
@@ -95,7 +100,22 @@
                   </div>
                 </div>
               </div><br>';
+        if(isset($_SESSION["user_id"]))
 
+        {
+          echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
+          echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
+          echo '
+            <div class="container" style="background:rgba(207, 207, 207, 1)">
+            <i class = "fa fa-star fa-2x" data-index="0"></i>
+            <i class = "fa fa-star fa-2x" data-index="1"></i>
+            <i class = "fa fa-star fa-2x" data-index="2"></i>
+            <i class = "fa fa-star fa-2x" data-index="3"></i>
+            <i class = "fa fa-star fa-2x" data-index="4"></i>
+            </div><br>';
+  
+            include ("ratingscript.js");
+          }
       	echo '
           <div class="container">
             <!-- Nav tabs -->
@@ -124,6 +144,25 @@
                 <div class="container">         
                   <table class="table table-bordered ml-5" style="width: 600px">
                   <tr>
+                    <td><b>Rating</b></td>';
+    $sql1 = $conn->query("SELECT collegeID FROM stars WHERE collegeID = ".$_GET['cid']."");
+    $numR = $sql1->num_rows;
+
+    $sql1 = $conn -> query("SELECT SUM(rateIndex) AS total FROM stars WHERE collegeID = ".$_GET['cid']."");
+
+    $rData = $sql1-> fetch_array();
+    $total = $rData['total'];
+
+    if($numR == 0){
+      $avg = 0;
+    }
+    else{
+      $avg = $total / $numR;
+    }                
+
+          echo          '<td>'.(round($avg,2)).'</td>
+                  </tr>
+                  <tr>
                     <td><b>Institute Type</b></td>
                     <td>'.$row["type"].'</td>
                   </tr>
@@ -137,7 +176,7 @@
                   </tr>
                   <tr>
                     <td><b>No. of Courses Available</b></td>
-                    <td>'.$row["no_of_course"].'</td>
+                    <td>'.$noOfCourse.'</td>
                   </tr>
                   </table>
                 </div><br>
@@ -245,11 +284,19 @@
               </div>';
       }
     }
+    else
+    {
+      echo '<div class="media border p-3">
+                <div class="media-body">
+                  <h4>No course are allowed yet</h4>
+                </div>
+              </div>';
+    }
   echo'</div>';
 
   
 
-  $sql = "SELECT * FROM review WHERE college_id = '$id' ";
+  $sql = "SELECT review.time, review.comment, user.username FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ";
   $result = $conn->query($sql);
   
   echo '<div id="menu2" class="container tab-pane fade mb-5">';
@@ -258,25 +305,39 @@
         echo '<div class="media border p-3">
                 <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
-                  <h5>#'.$row["review_id"].'<small><i> added on '.$row["time"].'</i></small></h5 >
+                  <h5>#'.$row["username"].'<small><i> added on '.$row["time"].'</i></small></h5 >
                   <p>'.$row["comment"].'</p>
                 </div>
               </div>';
       }
     }
+  if(isset($_SESSION["user_id"]))
+  { 
   echo '<div class="media border p-3">
-          <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-          <div class="media-body">
-            <form action="addReview.php" method="post">
-              <input type="hidden" name="id" value="'.$id.'">
-              <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
-              <button type="submit" class="float-sm-right btn btn-success">Submit</button>
-            </form>
-          </div>
-        </div>';
-  echo'</div>';
+           <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+           <div class="media-body">
+             <form action="addReview.php" method="post">
+               <input type="hidden" name="id" value="'.$id.'">
+               <input type="text" class="form-control" name="comment" placeholder="Enter your review here..." style="height: 100px">
+               <button type="submit" class="float-sm-right btn btn-success">Submit</button>
+             </form>
+           </div>
+         </div>';
+   echo'</div>';
+  }
 
-
+if(isset($_SESSION["admin_loged_in"]))
+    {
+      if($_SESSION["admin_loged_in"])
+      {
+        echo '
+          <form action="deleteCollege.php" method="post">
+            <input type="hidden" name="id" value="'.$id.'">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        ';
+      }
+}
 
   echo'</div></body>';
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2019 at 10:49 AM
+-- Generation Time: Jul 14, 2019 at 04:02 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -32,7 +32,6 @@ CREATE TABLE `college` (
   `id` int(3) UNSIGNED NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `location` varchar(100) DEFAULT NULL,
-  `rating` float DEFAULT NULL,
   `picsource` varchar(100) DEFAULT NULL,
   `bannersource` varchar(100) DEFAULT NULL,
   `altimg` varchar(50) DEFAULT NULL,
@@ -43,12 +42,12 @@ CREATE TABLE `college` (
 -- Dumping data for table `college`
 --
 
-INSERT INTO `college` (`id`, `name`, `location`, `rating`, `picsource`, `bannersource`, `altimg`, `logo_source`) VALUES
-(1, 'INTI International College', 'Kuala Lumpur', 5, 'INTI-logo.jpg', 'INTI-banner.jpg', 'INTI Logo', 'inti.png'),
-(2, 'SEGI University & College', 'Penang', 4.5, 'SEGI-logo.png', 'SEGI-banner.jpg', 'SEGI Logo', 'segi.png'),
-(3, 'Tunku Abdul Rahman University College', 'Penang', 4.5, 'TARUC-logo.jpg', 'TARUC-banner.jpg', 'TARC Logo', 'tarc.png'),
-(4, 'Sunway College', 'Penang', 4.5, 'SUNWAY-logo.png', 'SUNWAY-banner.jpg', 'Sunway Logo', 'sunway.png'),
-(5, 'Disted College', 'Penang', 4.5, 'DISTED-logo.png', 'DISTED-banner.jpg', 'Disted Logo', 'disted.png');
+INSERT INTO `college` (`id`, `name`, `location`, `picsource`, `bannersource`, `altimg`, `logo_source`) VALUES
+(1, 'INTI International College', 'Kuala Lumpur', 'INTI-logo.jpg', 'INTI-banner.jpg', 'INTI Logo', 'inti.png'),
+(2, 'SEGI University & College', 'Penang', 'SEGI-logo.png', 'SEGI-banner.jpg', 'SEGI Logo', 'segi.png'),
+(3, 'Tunku Abdul Rahman University College', 'Penang', 'TARUC-logo.jpg', 'TARUC-banner.jpg', 'TARC Logo', 'tarc.png'),
+(4, 'Sunway College', 'Penang', 'SUNWAY-logo.png', 'SUNWAY-banner.jpg', 'Sunway Logo', 'sunway.png'),
+(5, 'Disted College', 'Penang', 'DISTED-logo.png', 'DISTED-banner.jpg', 'Disted Logo', 'disted.png');
 
 -- --------------------------------------------------------
 
@@ -138,7 +137,33 @@ CREATE TABLE `review` (
 INSERT INTO `review` (`review_id`, `time`, `comment`, `college_id`) VALUES
 (1, '2019-07-01', 'This is a line of comment.', 1),
 (2, '2019-07-13', 'fuck u tm gagaga hahahaha', 1),
-(3, '2019-07-13', 'fuck you TM, mcd,pizza, kfc,blah lbha lbhalbhabajlbjalbhaljldasjdfoiajsfoidasnfndaskfjoasidfmksaldgmlksdfasjfoipwemklfasndgkvlasfj', 1);
+(9, '2019-07-13', 'fuck u tm', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stars`
+--
+
+CREATE TABLE `stars` (
+  `id` int(11) NOT NULL,
+  `rateIndex` tinyint(4) NOT NULL,
+  `collegeID` int(3) UNSIGNED NOT NULL,
+  `userID` int(3) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `stars`
+--
+
+INSERT INTO `stars` (`id`, `rateIndex`, `collegeID`, `userID`) VALUES
+(1, 3, 1, 1),
+(2, 1, 2, 6),
+(3, 2, 3, 8),
+(4, 1, 4, 7),
+(128, 1, 5, 1),
+(129, 3, 2, 1),
+(142, 1, 2, 8);
 
 -- --------------------------------------------------------
 
@@ -198,6 +223,14 @@ ALTER TABLE `review`
   ADD KEY `college_id` (`college_id`);
 
 --
+-- Indexes for table `stars`
+--
+ALTER TABLE `stars`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Foreign` (`collegeID`) USING BTREE,
+  ADD KEY `userID` (`userID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -229,13 +262,19 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `review_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `stars`
+--
+ALTER TABLE `stars`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -258,6 +297,12 @@ ALTER TABLE `course`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`college_id`) REFERENCES `college` (`id`);
+
+--
+-- Constraints for table `stars`
+--
+ALTER TABLE `stars`
+  ADD CONSTRAINT `stars_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

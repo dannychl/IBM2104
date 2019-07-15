@@ -1,5 +1,5 @@
 <div class="navigate"> 
-   <a href="homepage.php"><img class="logo" src="icon.jpg" style="margin: 15px 0px 0px 50px;"></a>
+   <a href="homepage.php"><img class="logo" src="icon.jpg" style="margin: 15px 0px 0px 50px; z-index: 999999999"></a>
 <form action="yp.php" method="get">
 <nav>
 <ul>
