@@ -301,7 +301,7 @@
 
   
 
-  $sql = "SELECT review.time, review.comment, user.username FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ";
+  $sql = "SELECT review.time, review.comment, user.username FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ORDER BY time ASC";
   $result = $conn->query($sql);
   
   echo '<div id="menu2" class="container tab-pane fade mb-5">';
