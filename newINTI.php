@@ -292,12 +292,19 @@
                 </div>
               </div>';
     }
-  echo'
-    <form action="addCourse.php" method="post">
-      <input type="hidden" name="id" value="'.$id.'">
-      <button type="submit" class="btn btn-primary" style="margin-left: 200px; margin-bottom: 100px">Add Course</button>
-    </form>
-  </div>';
+
+    if(isset($_SESSION["admin_loged_in"]))
+    {
+      if($_SESSION["admin_loged_in"])
+      {
+        echo'
+          <form action="addCourse.php" method="post">
+            <input type="hidden" name="id" value="'.$id.'">
+            <button type="submit" class="btn btn-primary" style="width: 100%">Add Course +</button>
+          </form>';
+      }
+    }
+  echo'</div>';
 
   
 
