@@ -145,22 +145,41 @@
 			{
 				margin-bottom: 10px;
 			}
+
+			h1.chgFontFamily{
+			text-align:center;
+			font-size: 4.0em;
+			font-family: aerial;
+			background-color:rgba(191, 191, 191, 1);
+			width: 89vw;
+			text-shadow: 2px 2px 4px;
+			text-decoration:none;
+			color: #000;
+
+		}
+
+		.zoomTitle{
+			padding: 0.5px;
+			transition: transform 1.0s;
+		}
+
+		.zoomTitle:hover{
+			-ms-transform: scale(1.2); /* IE 9 */
+			-webkit-transform: scale(1.2); /* Safari 3-8 */
+			transform: scale(1.2); 
+		}
 			</style>
 			</head>
-			<body style="background-color: #E5E5E5">';
+			<body style="background-color: #FFF">';
 
 		include 'header2.php';
 
 		echo '
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+		<div class= "zoomTitle">
+			<h1 class="chgFontFamily" style="margin: 80px 0px 0px 80px; margin-top:6%; margin-bottom: -6%">Add College</h1>
+		</div>
 			<h5>
-			<div class="col-6" style="background-color: white; margin: 0px 80px 80px 400px; padding-top: 5px; padding-bottom: 50px; box-shadow: 3px 3px">
-				<a href="addCollege.php"><h1 class="chgFontFamily" style="margin: 50px 0px 0px 265px">Add College</h1></a>
+			<div class="col-6" style="background-color: white; margin:auto; padding-top: 5px; padding-bottom: 50px; border:5px solid; border-style:double; margin-top:10%">
 				<form action="addCollege.php" method="post" enctype="multipart/form-data" style="margin: 100px 0px 0px 130px; background-color: white">
 				    <div class="spacing">Picture Source:
 				    <input type="file" name="fileToUpload1" id="fileToUpload" required style="margin-left: 80px"><br></div>

@@ -42,21 +42,52 @@
 		include ("headercss.html");
 
 		echo '
-				</style>
-				</head>
-				<body class="change">';
+		.outerContainer{
+			width:1500px;
+			margin:auto;
+			border: 3px solid black;
+			margin-top: 8%;
+			margin-bottom:8%;
+		}
+
+		h1.chgFontFamily{
+			text-align:center;
+			font-size: 5.0em;
+			font-family: aerial;
+			background-color:rgba(191, 191, 191, 1);
+			width: 89vw;
+			text-shadow: 2px 2px 4px;
+			text-decoration:none;
+			color: #000;
+		}
+
+		.zoom{
+			padding: 2px;
+			transition: transform 1.0s;
+		}
+
+		.zoom:hover{
+			-ms-transform: scale(1.2); /* IE 9 */
+			-webkit-transform: scale(1.2); /* Safari 3-8 */
+			transform: scale(1.2); 
+		}
+		</style>
+		</head>
+		<body class="change">';
 
 		include ("header2.php");
 
 		$sql = "SELECT * FROM user";
 		$result = $conn->query($sql);
-
-		echo '<br><br><br><br><br>';
 		echo '
+		<div class= "zoom">
+			<h1 class="chgFontFamily" style="margin: 80px 0px 0px 80px; margin-top:6% ; margin-bottom: -3%">User Maintenance</h1>
+		</div>
+		<div class= "outerContainer">
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px; width: 90%"
-					<div class="container" style="margin: 100px 0px 0px 200px">
+					<div class="container" style="margin: 170px 0px 0px 200px">
 						<div class="row">
-							<div class="col-md-8" style="width: 60%; right:80px;">
+							<div class="col-md-8" style="width: 70%; right:130px;">
 								<form action="userMaintenance.php" method="post">';
 
 		if($result->num_rows>0)
@@ -71,7 +102,8 @@
 						$admin = "False";
 
 					echo '
-				    	<table class="table" style="margin: 50px 0px 0px 350px; border: 2px solid black">
+
+				    	<table class="table" style="margin: 50px 0px 0px 350px; border: 3px solid black">
 							<tbody>
 				    		<tr style="height: 150px;" id="'.$row["id"].'">
 							  	<td style="width: 500px; padding: 20px 50px 35px 50px">
@@ -92,7 +124,7 @@
 		}
 
 		echo '
-				</form></div>';
+				</form></div></div>';
 
 		$conn->close();
 	}
