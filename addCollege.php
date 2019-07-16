@@ -20,7 +20,7 @@
 		$location = validate($_POST['location']);
 		$type = validate($_POST['type']);
 		$intake = validate($_POST['intake']);
-		$maplink = validate($_POST['maplink']."&output=embed");
+		$maplink = validate("https://maps.google.it/maps?q=".$_POST['college_name']."&output=embed");
 		$description = validate($_POST['description']);
 
 		$uploadOk = false;
@@ -185,8 +185,6 @@
 					</div>
 
 					<div class="spacing">Intake: <input type="text" name="intake" required style="margin-left: 155px"></div>
-
-					<div class="spacing">Map Link: <input type="text" name="maplink" required style="margin-left: 127px"></div>
 
 					<div class="spacing">Description: </div>
 
