@@ -43,9 +43,10 @@
 
 		echo '
 		.outerContainer{
-			width:1500px;
+			width:1400px;
 			margin:auto;
-			border: 3px solid black;
+			border: 5px solid black;
+			border-style:double;
 			margin-top: 8%;
 			margin-bottom:8%;
 		}
@@ -85,7 +86,7 @@
 		</div>
 		<div class= "outerContainer">
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px; width: 90%"
-					<div class="container" style="margin: 170px 0px 0px 200px">
+					<div class="container" style="margin:auto">
 						<div class="row">
 							<div class="col-md-8" style="width: 70%; right:130px;">
 								<form action="userMaintenance.php" method="post">';
