@@ -47,7 +47,28 @@
 						height: 100px; 
 						margin: 20px;
 						font-size: 20px;
+						font-family:Sans-serif;
 						text-align: center;
+						border:2px solid;
+					}
+
+					td.setCenterZoom{
+						width: 200px; 
+						height: 100px; 
+						margin: 20px;
+						font-size: 20px;
+						font-weight:bold;
+						font-family:Sans-serif;
+						text-align: center;
+						border:2px solid;
+						padding: 1px;
+						transition: transform 1.0s;
+					}
+
+					td.setCenterZoom:hover{
+						-ms-transform: scale(1.2); /* IE 9 */
+						-webkit-transform: scale(1.2); /* Safari 3-8 */
+						transform: scale(1.2); 
 					}
 
 					.table_border{
@@ -57,6 +78,33 @@
 
 					::placeholder{
 						color: #C2C2C2;
+					}
+
+					.chgFontFamily{
+						text-align:center;
+						font-size: 5.0em;
+						font-family: aerial;
+						background-color:rgba(191, 191, 191, 1);
+						width: 89vw;
+						text-shadow: 2px 2px 4px;
+						margin-left: -130px;
+						text-decoration:none;
+						 color: #000;
+					}
+
+					a.chgFontFamily{
+						text-decoration:none;
+					}
+
+					.zoomin{
+						padding: 1px;
+						transition: transform 1.0s;
+					}
+
+					.zoomin:hover{
+						-ms-transform: scale(1.2); /* IE 9 */
+						-webkit-transform: scale(1.2); /* Safari 3-8 */
+						transform: scale(1.2); 
 					}
 					
 					</style>
@@ -69,20 +117,21 @@
 				</head>
 				<body>
 				<div class="container mt-5" style="height: 200px">
-				<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparison</a></h1>
-				</div>
+				<div class="zoomin">
+				<h1 class="chgFontFamily" style="margin-top: 50px;">Comparison</a></h1>
+				</div></div>
 
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 
 				<table border=2 align="center" class="table_border" style="margin-top: 80px; margin-bottom: 20px;" >
 				<tr>
-				<td style="width: 200px; height: 100px"></td>
-					<td class="setCenter">Rating</td>
-					<td class="setCenter">Type</td>
-					<td class="setCenter">Intake</td>
-					<td class="setCenter">Location</td>
-					<td class="setCenter">Course</td>';
+				<td style="width: 200px; height: 100px ;border:2px solid"></td>
+					<td class="setCenter"><b>Rating</b></td>
+					<td class="setCenter"><b>Type</b></td>
+					<td class="setCenter"><b>Intake</b></td>
+					<td class="setCenter"><b>Location</b></td>
+					<td class="setCenter"><b>Course</b></td>';
 				//$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
 				/*$sql = "SELECT college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id;";
 				$result = $conn->query($sql);
@@ -119,8 +168,8 @@
 								<td class="setCenter">'.round($avg,2).'</td>
 								<td class="setCenter">'.$row["type"].'</td>
 								<td class="setCenter">'.$row["intake"].'</td>
-								<td class="setCenter"><a href="newINTI.php?cid='.$row["id"].'#address">'.$row["location"].'</a></td>
-								<td class="setCenter">';
+								<td class="setCenterZoom"><a href="newINTI.php?cid='.$row["id"].'#address">'.$row["location"].'</a></td>
+								<td class="setCenterZoom">';
 					$sql1 = "SELECT COUNT(DISTINCT course_id) FROM course INNER JOIN college ON course.college_id = ".$row["id"]."";
 					$result1 = $conn->query($sql1);
 
