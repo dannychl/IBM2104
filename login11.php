@@ -14,7 +14,7 @@
 
 		$pass = $conn->real_escape_string($_GET['pass']);
 		
-		$sql = "SELECT id, admin, username FROM USER WHERE email = '$email' AND pass = '$pass'";
+		$sql = "SELECT id, admin, name FROM user WHERE email = '$email' AND pass = '$pass'";
 		$result = $conn->query($sql);
 
 		if($result->num_rows > 0)
@@ -27,13 +27,13 @@
 			if($_SESSION["admin_loged_in"])
 			{
 				echo '
-				<script>window.alert("Welcome back, '.$row["username"].' (admin)")
+				<script>window.alert("Welcome back, '.$row["name"].' (admin)")
 				location.href="'.$_SESSION["self"].'"</script>';
 			}
 			else
 			{
 				echo '
-				<script>window.alert("Welcome back, '.$row["username"].'")
+				<script>window.alert("Welcome back, '.$row["name"].'")
 				location.href="'.$_SESSION["self"].'"</script>';
 			}
 			
@@ -60,8 +60,8 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="Image/pic1.jpg" alt="Member">
 				</div>
-
 				<form class="login100-form validate-form" action="login11.php" method="get">
+					<i class="fa fa-times" aria-hidden="true" style="float:right"></i>
 					<span class="login100-form-title">
 						<b>Member Login</b>
 					</span>
@@ -99,7 +99,7 @@
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
+						<a class="txt2" href="signUp1.php">
 							Create your Account 
 						</a>
 					</div>

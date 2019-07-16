@@ -69,7 +69,7 @@
 				</head>
 				<body>
 				<div class="container mt-5" style="height: 200px">
-				<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparision</a></h1>
+				<h1 class="chgFontFamily" style="margin-top: 50px; font-family: arial"><a href="compare.php">Comparison</a></h1>
 				</div>
 
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">

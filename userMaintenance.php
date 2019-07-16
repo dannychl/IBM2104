@@ -75,8 +75,8 @@
 							<tbody>
 				    		<tr style="height: 150px;" id="'.$row["id"].'">
 							  	<td style="width: 500px; padding: 20px 50px 35px 50px">
-							  		<br>Username: ' . $row["username"] . '
-							  		<br><br>Name: '.$row["firstname"].' '.$row["lastname"].'<br><br>
+							  		<br>Name: ' . $row["name"] . '
+							  		<br><br>Date Of Birth: '.$row["dob"].'<br><br>
 							  		Admin: '.$admin.'
 							  	</td>
 

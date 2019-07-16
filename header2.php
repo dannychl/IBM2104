@@ -7,7 +7,7 @@
 	
 	<li><a href="yp.php" style="text-decoration: none; color: white;">College</a></li>
 
-	<li><a href="compare.php" style="text-decoration: none; color: white;">Comparision</a></li>
+	<li><a href="compare.php" style="text-decoration: none; color: white;">Comparison</a></li>
 	<?php 
 		if(isset($_SESSION["admin_loged_in"]))
 		{
