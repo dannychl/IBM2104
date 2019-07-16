@@ -106,7 +106,8 @@
 					<input type="hidden" name="added_course" value="true">		
 				</form>
 			</div>
-			</h5>
-		</body>';
+			</h5>';
+
+		include ("footer.html");
 	}
 ?>
