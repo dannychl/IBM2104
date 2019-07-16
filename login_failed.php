@@ -5,7 +5,4 @@
 	echo '
 			<script>window.alert("Email not exist, please go to register.")
 			location.href="'.$_SESSION["self"].'"</script>';
-	/*echo '
-		<script>window.alert("Logged Out")
-		location.href="'.$_SESSION["self"].'"</script>';*/
 ?>

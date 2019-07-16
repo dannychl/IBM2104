@@ -52,12 +52,12 @@
 		    echo "Sorry, your file is too large.";
 		    $uploadOk = false;
 		}
-		else if ($_FILES["fileToUpload2"]["size"] > 500000) 
+		if ($_FILES["fileToUpload2"]["size"] > 500000) 
 		{
 		    echo "Sorry, your file is too large.";
 		    $uploadOk = false;
 		}
-		else if ($_FILES["fileToUpload3"]["size"] > 500000) 
+		if ($_FILES["fileToUpload3"]["size"] > 500000) 
 		{
 		    echo "Sorry, your file is too large.";
 		    $uploadOk = false;
