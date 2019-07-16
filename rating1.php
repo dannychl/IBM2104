@@ -43,41 +43,6 @@ session_start();
 	
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset = "UTF-8">
-	<meta name ="viewport"
-		content="width-device-width, user-scalable = no, initial-scale= 1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv"X-UA-Compatible" content="ie-edge">
-	<title>Rating System</title>
-	<script src="https://kit.fontawesome.com/9d2c85f7cd.js"></script>
-</head>
-<style>
-.fa-star{
-	text-shadow: 3px 3px 10px grey;
-	font-size: 25px;
-}
-
-</style>
-<body>
-	<h2> Rating System </h2>
-	<div align="center" style="background:rgba(207, 207, 207, 1); border-radius: 10px;margin-left:-1%; margin-top:-0.5%; width: 180px; padding:5px;">
-		<i class = "fa fa-star fa-2x" data-index="0"></i>
-		<i class = "fa fa-star fa-2x" data-index="1"></i>
-		<i class = "fa fa-star fa-2x" data-index="2"></i>
-		<i class = "fa fa-star fa-2x" data-index="3"></i>
-		<i class = "fa fa-star fa-2x" data-index="4"></i>
-		<br><br>
-		<?php
-		echo "Average Rating: ";
-		echo (round($avg,2));
-		echo "<br>".$_SESSION['user_id'];
-		echo '<script>localStorage.setItem("cID", '.$_GET["cid"].');</script>';
-		echo '<script>localStorage.setItem("uID", '.$_SESSION["user_id"].');</script>';
-		?>
-	</div>
 	<script 
 		src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous">
 	</script>

@@ -64,15 +64,27 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
 }
 </script>
-<br>
+<br>';
 
-<!-- Another content -->
-<div class="container">
-<h2> Register here to begin your personalized research </h2> 
-<a href="signUp1.php" class="signUpbtn"> Click for more information </a><br>
-</div>
-
-<div class= "frameColleges">
+if(isset($_SESSION["loged_in"]))
+{	
+	if(!$_SESSION["loged_in"])
+		echo
+	'<div class="container">
+	<h2> Register here to begin your personalized research </h2> 
+	<a href="signUp1.php" class="signUpbtn"> Click for more information </a><br>
+	</div>';
+}
+else
+{
+	echo
+	'<div class="container">
+	<h2> Register here to begin your personalized research </h2> 
+	<a href="signUp1.php" class="signUpbtn"> Click for more information </a><br>
+	</div>';
+}
+echo
+'<div class= "frameColleges">
 <div class= "colleges">
 <div class = "zoomPic">
 <img src="intisubang.jpg" width="350px" height="240px">
