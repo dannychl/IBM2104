@@ -4,6 +4,14 @@
 	define('DB_USER','root');
 	define('DB_PASS','');
 	define('DB_NAME','project');
+
+	function validate($data) 
+	{
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
 	try{
 		//"mysql:host=localhost;dbname=stationary"
 		$dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
@@ -15,13 +23,13 @@
 	}
 	if(isset($_POST['submitted'])){
 	
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$psw = $_POST['psw'];
-	$psw_repeat = $_POST['psw-repeat'];
-	$phone = $_POST['phone'];
-	$date= $_POST['date'];
-	$gender = $_POST['gender'];
+	$name = validate($_POST['name']);
+	$email = validate($_POST['email']);
+	$psw = validate($_POST['psw']);
+	$psw_repeat = validate($_POST['psw-repeat']);
+	$phone = validate($_POST['phone']);
+	$date= validate($_POST['date']);
+	$gender = validate($_POST['gender']);
 
 	if(!empty($email) || !empty($psw) || !empty($psw_repeat) || !empty($phone) || !empty($dateOfBirth) || !empty($gender)){
 		$message="";
