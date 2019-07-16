@@ -256,8 +256,17 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <select class="form-control" id="nationality">
-                          <option hidden>-----Course Name-----</option>
-                        </select>
+                          <option hidden>-----Course Name-----</option>';
+
+                         $sql = "SELECT * FROM course WHERE college_id = '$id'";
+                         $result = $conn->query($sql); 
+                         if ($result->num_rows > 0) {
+                           while($row = $result->fetch_assoc()) {
+                            echo'<option>'.$row["name"].'</option>';
+                           }
+                         }
+
+                        echo'</select>
                       </div>
                     </div>
                   </div>
