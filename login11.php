@@ -61,7 +61,7 @@
 					<img src="Image/pic1.jpg" alt="Member">
 				</div>
 				<form class="login100-form validate-form" action="login11.php" method="get">
-					<i class="fa fa-times" aria-hidden="true" style="float:right"></i>
+					<a href="'.$_SESSION["self"].'"><i class="fa fa-times" aria-hidden="true" style="float:right"></i></a>
 					<span class="login100-form-title">
 						<b>Member Login</b>
 					</span>
@@ -75,7 +75,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="text" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
