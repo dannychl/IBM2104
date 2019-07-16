@@ -97,7 +97,6 @@ session_start();
 			$('.fa-star').on('click', function(){
 				ratedIndex = parseInt($(this).data('index'));
 				localStorage.setItem('ratedIndex', ratedIndex);
-				alert("user id: " + uID + "\ncollege id: " + cID);
 				saveToTheDB();
 			});
 			

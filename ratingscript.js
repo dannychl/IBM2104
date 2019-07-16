@@ -14,7 +14,6 @@
 			$('.fa-star').on('click', function(){
 				ratedIndex = parseInt($(this).data('index'));
 				localStorage.setItem('ratedIndex', ratedIndex);
-				alert("user id: " + uID + "\ncollege id: " + cID);
 				saveToTheDB();
 			});
 			
@@ -32,7 +31,6 @@
 			});
 		});
 		function saveToTheDB(){
-			alert("user id: " + uID + "\ncollege id: " + cID);
 			$.ajax({
 				url:"rating1.php?uid="+uID+"&cid=" + cID,
 				method: "POST",
