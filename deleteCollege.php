@@ -11,27 +11,24 @@
   	die("Connection error". $conn->connect_error);
   }
 
+  if(isset($_POST['id'])){
   $id = $_POST['id'];
- 
+
   $sql = "DELETE FROM college_detail WHERE college_id='$id'";
-  if ($conn->query($sql) === TRUE) {
-    $sql = "DELETE FROM course WHERE college_id='$id'";
-    if ($conn->query($sql) === TRUE) {
-    	$sql = "DELETE FROM review WHERE college_id='$id'";
- 		if ($conn->query($sql) === TRUE) {
- 			$sql = "DELETE FROM stars WHERE collegeID='$id'";
- 			if ($conn->query($sql) === TRUE) {
- 				$sql = "DELETE FROM college WHERE id='$id'";
- 				if ($conn->query($sql) === TRUE) {    
-			      echo";
+  $conn->query($sql);
+  $sql = "DELETE FROM course WHERE college_id='$id'";
+  $conn->query($sql);
+  $sql = "DELETE FROM review WHERE college_id='$id'";
+  $conn->query($sql);
+ 	$sql = "DELETE FROM stars WHERE collegeID='$id'";
+ 	$conn->query($sql);
+ 	$sql = "DELETE FROM college WHERE id='$id'";
+ 	$conn->query($sql);    
+			      echo"
 			      <script>
 			      alert('Deleted');
 			      location.href='yp.php?';
 			      </script>";
-			  	}
-			}
-		}
-    }
   }
   else {
     echo "Error deleting record: " . $conn->error;
