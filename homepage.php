@@ -117,9 +117,9 @@ function showSlides(n) {
 	</div>
 </div>
 </div>
-</body>
+<div style="padding-bottom: 650px"></div>';
 
-</html>';
+include ("footer.html");
 
 
 ?>

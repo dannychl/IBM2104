@@ -92,7 +92,8 @@
 		}
 
 		echo '
-				</form></div>';
+				</form></div></div></div></div>';
+		include("footer.html");
 
 		$conn->close();
 	}

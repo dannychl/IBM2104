@@ -33,7 +33,12 @@
               <script src="https://kit.fontawesome.com/9d2c85f7cd.js"></script>
               <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo@qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous"></script>
               <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="demo.css">
+              <link rel="stylesheet" href="footer-distributed-with-address-and-phones.css">
+
+              <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+              <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">';
 
               include('headercss.html');
               echo
@@ -346,13 +351,14 @@ if(isset($_SESSION["admin_loged_in"]))
         echo '
           <form action="deleteCollege.php" method="post">
             <input type="hidden" name="id" value="'.$id.'">
-            <button type="submit" class="btn btn-danger" style="margin-left: 200px; margin-bottom: 100px">Delete</button>
+            <button type="submit" class="btn btn-danger" style="margin-left: 200px;">Delete</button>
           </form>
         ';
       }
 }
 
   echo'</div></body>';
+  include ("footer.html");
 }
  	$conn->close();
  ?>

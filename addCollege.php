@@ -194,7 +194,8 @@
 					<input type="hidden" name="added_college" value="true">		
 				</form>
 			</div>
-			</h5>
-		</body>';
+			</h5>';
+
+			include("footer.html");
 	}
 ?>

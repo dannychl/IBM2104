@@ -147,9 +147,7 @@ echo '			h4.chgFontFamily{
 		echo '	</div>
 			</div>			   
 		</div>
-	</div>
-	
-</body>
+	</div>';
 
-</html>';
+	include("footer.html");
 ?>
