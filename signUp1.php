@@ -121,7 +121,7 @@
     <input type="text" placeholder="Enter Contact Number (e.g 012-34567890)" name="phone" required>   
 	
 	<label for="dateOfBirth"><b>Date Of Birth: (DD-MM-YYYY)</b></br></label>
-	<input type="date" name="date" placeholder="(DD-MM-YYYY)">
+	<input type="date" name="date" placeholder="(DD-MM-YYYY)" required>
 		
 	<br><br>
 	
