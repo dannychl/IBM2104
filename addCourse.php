@@ -1,15 +1,22 @@
 <?php
 	session_start();
+	function validate($data) 
+	{
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
 	if(isset($_POST['added_course']))
 	{
 		$_SESSION["self"] = $_SERVER["PHP_SELF"];
 		//$target_dir = "Image/";
-		$course_name = $_POST['course_name'];
-		$mode = $_POST['mode'];
-		$level = $_POST['level'];
-		$duration = $_POST['duration'];
-		$fee = $_POST['fee'];
-		$id = $_POST['id'];
+		$course_name = validate($_POST['course_name']);
+		$mode = validate($_POST['mode']);
+		$level = validate($_POST['level']);
+		$duration = validate($_POST['duration']);
+		$fee = validate($_POST['fee']);
+		$id = validate($_POST['id']);
 
 		$conn = new mysqli("localhost", "root", "", "project");
 

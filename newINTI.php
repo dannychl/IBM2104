@@ -76,7 +76,8 @@
             <body>';
 
             include('header2.php');
-            echo '                  
+            echo ' 
+            <br><br>                 
               <div class="container-fluid">
                 <img src="'.$row["bannersource"].'" style="height: 400px;width: 100%">
 
@@ -308,7 +309,7 @@
 
   
 
-  $sql = "SELECT review.time, review.comment, user.username FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ORDER BY time ASC";
+  $sql = "SELECT review.time, review.comment, user.name FROM review INNER JOIN user ON review.user_id = user.id WHERE college_id = '$id' ORDER BY time ASC";
   $result = $conn->query($sql);
   
   echo '<div id="menu2" class="container tab-pane fade mb-5">';
@@ -317,7 +318,7 @@
         echo '<div class="media border p-3">
                 <img src="img_avatar3.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
-                  <h5>#'.$row["username"].'<small><i> added on '.$row["time"].'</i></small></h5 >
+                  <h5>#'.$row["name"].'<small><i> added on '.$row["time"].'</i></small></h5 >
                   <p>'.$row["comment"].'</p>
                 </div>
               </div>';
