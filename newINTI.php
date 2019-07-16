@@ -126,14 +126,14 @@
           <div class="container">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li class="nav-item">
+              <li class="nav-item bg-secondary text-white">
                 <a class="nav-link active" data-toggle="tab" href="#home">Overview</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item bg-secondary text-white">
                 <a class="nav-link" data-toggle="tab" href="#menu1">Courses</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu2">Reviews</a>
+              <li class="nav-item bg-secondary text-white">
+                <a class="nav-link " data-toggle="tab" href="#menu2">Reviews</a>
               </li>
             </ul>
           </div><br>

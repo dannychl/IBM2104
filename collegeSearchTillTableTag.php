@@ -36,12 +36,15 @@ include('header1.html');
 
 					h1.chgFontFamily{
 						text-align:center;
-						font-size: 5.0em;	
+						font-size: 5.0em;
 						font-family: aerial;
 						background-color:rgba(191, 191, 191, 1);
 						width: 89vw;
 						text-shadow: 2px 2px 4px;
 						margin-left: -130px;
+						text-decoration:none;
+						color: #000;
+
 					}
 
 					.rating {
@@ -74,6 +77,17 @@ include('header1.html');
 						
 						transform: scale(1.1); 
 					}
+
+					.zoomTitle{
+						padding: 1px;
+						transition: transform 1.0s;
+					}
+
+					.zoomTitle:hover{
+						-ms-transform: scale(1.2); /* IE 9 */
+						-webkit-transform: scale(1.2); /* Safari 3-8 */
+						transform: scale(1.2); 
+					}
 					
 					</style>
 					</head>
@@ -85,10 +99,12 @@ include('header1.html');
 				
 				
 					<div class="container mt-5" style="height: 200px">
-						<h1 class="chgFontFamily" style="margin-top: 50px"><a href="yp.php">College</a></h1>
+					<div class= "zoomTitle">
+						<h1 class="chgFontFamily" style="margin-top: 60px">Colleges</h1>
+						</div>
 					</div>
 
-					<div style="background-color: #f0f0f0; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+					<div style="background-color: #f0f0f0; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 150px ;border:2px solid">
 
 						<div>
 							<form action="yp.php" method="get">

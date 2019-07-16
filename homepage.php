@@ -75,32 +75,29 @@ function showSlides(n) {
 <div class= "frameColleges">
 <div class= "colleges">
 <div class = "zoomPic">
-<a href="newINTI.php?cid=1" style="text-decoration:none" color : "#000"> 
-<img src="intisubang.jpg" width="350px" height="240px"></a>
+<img src="intisubang.jpg" width="350px" height="240px">
 <h3> Inti College Subang </h3>
 </div>
 </div>
 
 <div class= "colleges">
 <div class = "zoomPic">
-<a href="newINTI.php?cid=4" style="text-decoration:none" color : "#000"> 
-<img src="SUNWAY-banner.jpg" width="350px" height="240px"></a>
+<img src="SUNWAY-banner.jpg" width="350px" height="240px">
 <h3> Sunway College </h3>
 </div>
 </div>
 
 <div class= "colleges">
 <div class = "zoomPic">
-<a href="newINTI.php?cid=2" style="text-decoration:none" color : "#000"> 
-<img src="SEGI-banner.jpg" width="350px" height="240px"></a>
+<img src="SEGI-banner.jpg" width="350px" height="240px">
 <h3> SEGI College </h3>
 </div>
 </div>
 
 <div class= "colleges">
 	<div class = "zoomPic">
-	<a href="newINTI.php?cid=3" style="text-decoration:none" color : "#000"> 
-<img src="TARUC-banner.jpg" width="350px" height="240px" style="margin-left:45%"></a>
+	
+<img src="TARUC-banner.jpg" width="350px" height="240px" style="margin-left:45%">
 		<div class ="textedit" style="margin-left: 45%">
 		<h4> Tunku Abdul Rahman University College </h4>
 		</div>
@@ -109,8 +106,7 @@ function showSlides(n) {
 
 <div class= "colleges">
 	<div class = "zoomPic">
-	<a href="newINTI.php?cid=5" style="text-decoration:none" color : "#000"> 
-		<img src="DISTED-banner.jpg" width="350px" height="240px" style="margin-left:75%"></a>
+		<img src="DISTED-banner.jpg" width="350px" height="240px" style="margin-left:75%">
 			<div class ="textedit" style="margin-left: 75%">
 				<h4> DISTED College </h4>
 			</div>
