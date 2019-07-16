@@ -84,6 +84,7 @@
 	}
 	?>
 	<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="SignUp.css">
 	</head>
 	<body>
@@ -91,6 +92,7 @@
 		<div class="container-signUp">
 			<div class="wrap-login100">
 	<form action="signUp1.php" method="post" >
+		<a href="homepage.php"><i class="fa fa-times" aria-hidden="true" style="float:right"></i></a>
 	<h1 style="text-align:center">SignUp Form</h1>
   <div class="container">
     <h1>Sign Up</h1>
@@ -121,7 +123,7 @@
     <input type="text" placeholder="Enter Contact Number (e.g 012-34567890)" name="phone" required>   
 	
 	<label for="dateOfBirth"><b>Date Of Birth: (DD-MM-YYYY)</b></br></label>
-	<input type="date" name="date" placeholder="(DD-MM-YYYY)">
+	<input type="date" name="date" placeholder="(DD-MM-YYYY)" required>
 		
 	<br><br>
 	

@@ -124,7 +124,8 @@
 		}
 
 		echo '
-				</form></div></div>';
+				</form></div></div></div></div>';
+		include("footer.html");
 
 		$conn->close();
 	}

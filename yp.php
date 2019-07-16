@@ -60,7 +60,12 @@
 					</table>';
 			    }  
 
-			    include ('collegeSearchEndTag.html');
+			    echo '
+					</div>
+					</div>			   
+					</div>
+					</div>';
+				include ("footer.html");
 			} 
 			else
 			{

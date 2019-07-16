@@ -124,22 +124,15 @@
 				<div style="background-color: white; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
 
 
-				<table border=2 align="center" class="table_border" style="margin-top: 80px; margin-bottom: 20px;" >
+				<table border=2 align="center" class="table_border" style="margin: 80px 0px 20px 100px" >
 				<tr>
 				<td style="width: 200px; height: 100px ;border:2px solid"></td>
 					<td class="setCenter"><b>Rating</b></td>
 					<td class="setCenter"><b>Type</b></td>
 					<td class="setCenter"><b>Intake</b></td>
 					<td class="setCenter"><b>Location</b></td>
-					<td class="setCenter"><b>Course</b></td>';
-				//$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'college'";
-				/*$sql = "SELECT college.name, college_details.type, college_details.intake, college_details.location FROM college_details INNER JOIN college ON college_details.college_id = college.id;";
-				$result = $conn->query($sql);
-
-				while($col = $result->fetch_assoc()){
-					echo "<td><center>".$col['COLUMN_NAME']."</center></td>";
-				}*/
-				echo "</tr>";
+					<td class="setCenter"><b>Course</b></td>
+				</tr>';
 
 
 				$sql = "SELECT college.id, college.picsource, college_detail.type, college_detail.intake, college_detail.location FROM college_detail INNER JOIN college ON college_detail.college_id = college.id";
@@ -183,9 +176,8 @@
 					
 	echo'		
 				</table>
-				</div>
-				</body>
-				</html>';
+				</div>';
+	include("footer.html");
 
 
 
