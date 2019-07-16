@@ -41,6 +41,9 @@ echo '			h4.chgFontFamily{
 			width: 89vw;
 			text-shadow: 2px 2px 4px;
 			margin-left: -130px;
+			text-decoration:none;
+			color: #000;
+
 		}
 		
 		::placeholder{
@@ -56,6 +59,16 @@ echo '			h4.chgFontFamily{
 			
 			transform: scale(1.1); 
 		}
+		.zoomTitle{
+			padding: 1px;
+			transition: transform 1.0s;
+		}
+
+		.zoomTitle:hover{
+			-ms-transform: scale(1.2); /* IE 9 */
+			-webkit-transform: scale(1.2); /* Safari 3-8 */
+			transform: scale(1.2); 
+		}
 		</style>
 		</head>
 		<body class="change">';
@@ -63,10 +76,12 @@ echo '			h4.chgFontFamily{
 		include ('header2.php');
 		echo '
 	<div class="container mt-5" style="height: 200px">
-		<h1 class="chgFontFamily "style="margin-top: 60px"><a href="yp.php">Colleges</a></h1>
+	<div class= "zoomTitle">
+		<h1 class="chgFontFamily "style="margin-top: 60px">Colleges</h1>
+		</div>
 	</div>
 	
-	<div style="background-color: #f0f0f0; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px">
+	<div style="background-color: #f0f0f0; margin: 0px 80px 80px 80px; padding-top: 5px; padding-bottom: 50px; border:2px solid">
 
 		<div>
 			<form action="yp.php" method="get">
@@ -118,7 +133,7 @@ echo '			h4.chgFontFamily{
 									}
 
 									echo '
-									<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
+									<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black;">
 										<tbody>
 										<tr class="clickable-row" data-href="newINTI.php?cid='.$row["id"].'" style="height: 150px;">
 											<td style="width: 390px"><img src="'. $row["logo_source"] .'" alt="' . $row["altimg"] . '" style="height: 100px; margin-top: 18px; margin-left: 15px;"></td>
