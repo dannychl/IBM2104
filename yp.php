@@ -3,8 +3,6 @@
 	$_SESSION["self"] = $_SERVER["PHP_SELF"];
 	if(isset($_GET['searched']) && !empty($_GET['search_content']))
 	{
-		//unset the session
-		//unset($_SESSION['loged_in']);
 		$search_content = trim($_GET['search_content']);
 
 		$servername = "localhost";
@@ -21,7 +19,12 @@
 		    die("Connection failed: " . $conn->connect_error);
 		}
 		
-		$sql = "SELECT DISTINCT college.id, college.name, college.logo_source, college.altimg, college_detail.location FROM college INNER JOIN college_detail ON UPPER(college.name) LIKE ('%$search_content%') OR UPPER(college_detail.location) LIKE UPPER('%$search_content%')";
+		$sql = "SELECT DISTINCT college.id, college.name, college.logo_source, college.altimg, college_detail.location
+			FROM ((college
+			INNER JOIN college_detail ON college.id = college_detail.college_id)
+			INNER JOIN course ON college.id = course.college_id)
+			WHERE UPPER(course.name) LIKE UPPER('%$search_content%') OR UPPER(college.name) LIKE ('%$search_content%') OR UPPER(college_detail.location) LIKE UPPER('%$search_content%');";
+
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) 
@@ -37,8 +40,12 @@
 
 				    $rData = $sql1-> fetch_array();
 				    $total = $rData['total'];
-
-				    $avg = $total / $numR;   
+				    if($numR == 0){
+				      $avg = 0;
+				    }
+				    else{
+				      $avg = $total / $numR;
+				    }  
 
 			    	echo '
 			    	<table class="table table-hover zoomin" style="margin-left: 200px; margin-top: 30px; border: 2px solid black">
@@ -51,8 +58,6 @@
 						  	</tr>
 						  </tbody>
 					</table>';
-
-			       /* echo "id: " . $row["id"]. "<br>Name: " . $row["name"]. "<br>Location: " . $row["location"]. "<br>Rating: " . $row["rating"] . "<br>Pic Source: " . $row["picsource"] . "<br>";*/
 			    }  
 
 			    include ('collegeSearchEndTag.html');

@@ -76,7 +76,8 @@
             <body>';
 
             include('header2.php');
-            echo '                  
+            echo ' 
+            <br><br>                 
               <div class="container-fluid">
                 <img src="'.$row["bannersource"].'" style="height: 400px;width: 100%">
 
